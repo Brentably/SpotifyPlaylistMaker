@@ -5,7 +5,7 @@ import './output.css'
 function App() {
   return (
     <div>
-      Hello, beautiful beautiful beautiful
+      about to try to work with node and spotify, wish me luck
     </div>
   );
 }
