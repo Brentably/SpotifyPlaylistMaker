@@ -22389,6 +22389,14 @@ video {
   border-radius: 0.25rem;
 }
 
+body {
+  background-color: rgb(43, 43, 43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
