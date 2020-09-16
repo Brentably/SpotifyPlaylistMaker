@@ -14,10 +14,13 @@
     "tailwindcss": "^1.8.10"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "concurrently -n Tailwind,React 'npm run watch:css' 'react-scripts start'",
+    "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:css": "tailwind build src/App.css -o src/index.css",
+    "watch:css": "chokidar 'src/App.css' -c 'npm run build:css'"
+
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chokidar-cli": "^2.1.0",
+    "concurrently": "^5.3.0"
   }
 }

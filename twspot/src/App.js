@@ -1,11 +1,15 @@
 import React from 'react';
-import './App.css';
 
 function App() {
   return (
-    <div>
-      testing
+    <>
+    <div className="upperCase">
+      testing 
     </div>
+    <button className="btn text-white bg-purple-700 hover:bg-purple-800">
+    Party with Slurm!
+    </button>
+    </>
   );
 }
 
