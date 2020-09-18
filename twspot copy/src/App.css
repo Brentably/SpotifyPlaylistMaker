@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+
+
+body {
+  background-color: rgb(43, 43, 43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
