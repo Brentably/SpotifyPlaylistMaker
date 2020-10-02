@@ -1,7 +1,7 @@
 import React from 'react';
 
 const auth = () => {
-  
+  console.log("wazzuuup")
 }
 
 
@@ -16,5 +16,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;
