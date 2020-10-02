@@ -10,6 +10,7 @@
     "postcss-cli": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "tailwindcss": "^1.8.10"
   },
@@ -20,7 +21,6 @@
     "eject": "react-scripts eject",
     "build:css": "tailwind build src/App.css -o src/index.css",
     "watch:css": "chokidar 'src/App.css' -c 'npm run build:css'"
-
   },
   "eslintConfig": {
     "extends": "react-app"
