@@ -11,9 +11,9 @@ const Home = () => {
     const controller = new AbortController()
     const signal = controller.signal
     let _token = hash.access_token
-
     // redirects back to the login page if there's not a token -- maybe upgrade error handling in the future
     if (!_token) history.push("/")
+
     const spotifyConnect = async () => {
       let response = await fetch(
         "https://api.spotify.com/v1/me",
