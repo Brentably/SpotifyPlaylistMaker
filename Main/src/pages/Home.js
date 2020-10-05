@@ -9,7 +9,7 @@ const Home = () => {
   let history = useHistory()
 
   const [token, setToken] = useState(null)
-
+  const [userData, setUserData] = useState(null)
   const spotifyConnect = async () => {
     if(!token) return
     let response = await fetch('https://api.spotify.com/v1/me', {
@@ -18,8 +18,7 @@ const Home = () => {
     headers: {
       'Authorization': `Bearer ${token}`
     }})
-    console.log(response)
-    console.log(token)
+    setUserData(response.json())
   }
 
 
