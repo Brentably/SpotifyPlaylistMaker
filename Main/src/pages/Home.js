@@ -6,10 +6,10 @@ import Login from "../components/Login"
 
 const Home = () => {
   hash.error && console.log(hash.error)
-
+  // console.log(hash.access_token)
   const [token] = useState(hash.access_token)
   const [userData, setUserData] = useState(null)
-
+  
   
 
 
@@ -24,8 +24,7 @@ const Home = () => {
         }})
         setUserData(response.json())
       }
-    // console.log(_token)
-    // redirects back to the login page if there is no token
+
 
 
     spotifyConnect()
