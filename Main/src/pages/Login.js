@@ -8,12 +8,15 @@ const Login = () => {
   
   const [userData, setUserData] = useState(null)
   const [token, setToken] = useState(null)
+  // controller / signal stuff is for cancelling the promise if the component unmounts
   useEffect(() => {
     const controller = new AbortController()
     const signal = controller.signal
+    // grabs the token from the url and sets it in state
     let thetoken = hash.access_token
     setToken(thetoken)
 
+    // tries to hook into the api and set the reponse to state
     const spotifyConnect = async () => {
       let response = await fetch(
         "https://api.spotify.com/v1/me",
