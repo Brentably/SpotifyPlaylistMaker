@@ -22,13 +22,16 @@ const Home = () => {
         headers: {
           'Authorization': `Bearer ${token}`
         }})
-        setUserData(response.json())
+        setUserData(await response.json())
       }
-
-
 
     spotifyConnect()
   }, [token])
+
+  useEffect(() => {
+    console.log(userData)
+  }, [userData])
+
 
     return token ? 
       <div className="bg-black p-5 rounded-lg text-center max-w-xs">
