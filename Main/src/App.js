@@ -1,8 +1,8 @@
 import React from 'react';
-import Login from './pages/Login'
+import Login from './components/Login'
 import Home from './pages/Home'
 import {Switch, Route} from "react-router-dom"
-
+// not using react router rn
 
 
 function App() {
@@ -10,10 +10,7 @@ function App() {
     <div>
       <Switch>
           <Route exact path="/">
-              <Login />
-          </Route>
-          <Route path="/home">
-              <Home/>
+              <Home />
           </Route>
       </Switch>
     </div>
