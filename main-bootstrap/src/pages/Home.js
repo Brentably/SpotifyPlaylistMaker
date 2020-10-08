@@ -41,7 +41,7 @@ const Home = () => {
       <Sidebar />
       </TokenContext.Provider>
       :
-      <div className="bg-black p-5 rounded-lg text-center max-w-xs modal">
+      <div className="">
         {/* loading */}
       </div>
     
