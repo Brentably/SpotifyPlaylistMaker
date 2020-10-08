@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import hash from "../auth/hash"
 import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 import '../App.css'
 
 
@@ -37,7 +38,7 @@ const Home = () => {
     return userData ?
       <TokenContext.Provider value={hash.access_token}>
       <Header />
-      
+      <Sidebar />
       </TokenContext.Provider>
       :
       <div className="bg-black p-5 rounded-lg text-center max-w-xs modal">
