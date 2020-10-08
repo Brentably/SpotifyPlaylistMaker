@@ -1,8 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import hash from "../auth/hash"
-import { authEndpoint, clientId, redirectUri, scopes } from "../auth/config"
-import Login from "../components/Login"
 import Header from '../components/Header';
+import '../App.css'
 
 
 const Home = () => {
@@ -38,18 +37,12 @@ const Home = () => {
     return userData ?
       <TokenContext.Provider value={hash.access_token}>
       <Header />
-      <div className="bg-black p-5 rounded-lg text-center max-w-xs">
-        <h1 className="text-white text-2xl mb-2">Welcome to the Home page</h1>
-        <img src={userData.images[0].url} alt="profile" />
-      </div>
-
       
       </TokenContext.Provider>
       :
-      <div className="bg-black p-5 rounded-lg text-center max-w-xs">
-        <h1 className="text-white text-2xl mb-2">Loading...</h1>
+      <div className="bg-black p-5 rounded-lg text-center max-w-xs modal">
+        {/* loading */}
       </div>
-      
     
   }
 
