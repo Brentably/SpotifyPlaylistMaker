@@ -22404,6 +22404,16 @@ body {
   margin-top: -98px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+.fredoka-font {
+  font-family: 'Fredoka One', cursive;
+}
+
+.icons {
+  max-height: 0.9em;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

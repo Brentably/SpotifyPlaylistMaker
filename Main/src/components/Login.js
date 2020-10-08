@@ -46,7 +46,7 @@ import { authEndpoint, clientId, redirectUri, scopes } from "../auth/config"
 const Login = () => {
   return (
     <div className="bg-black p-5 rounded-lg text-center max-w-xs modal">
-      <h1 className="text-white text-2xl mb-2">BPM Playlist Maker</h1>
+      <h1 className="text-white text-2xl mb-2 fredoka-font">BPM Playlist Maker</h1>
       <h5 className="text-gray-200 text-wrap mb-4">
         This app allows you to create playlists based on the BPM of songs to
         create perfectly customized running playlists.
