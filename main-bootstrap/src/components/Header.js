@@ -1,18 +1,15 @@
 import React from 'react';
-// import MusicNote from '../Icons/MusicNotes';
-// import RunningMan from '../Icons/RunningMan';
 
 
 const Header = () => {
     return (
         <>
-        <div className="">
+        <div className="text-white text-center">
 
             
             <h1 className="">
-                <img src={require("../Icons/RunningMan.png")} alt="music notes" className="" />
+                <img src={require("../Icons/runnerman.svg")} alt="music notes" className="inline w-8" style={{verticalAlign: 'baseline'}}/>
                 BPM Playlist Maker
-                <img src={require("../Icons/MusicNotes.png")} alt="music notes" className="" />
             </h1>
             
 
