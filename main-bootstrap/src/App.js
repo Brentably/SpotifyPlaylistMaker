@@ -7,7 +7,7 @@ import hash from './auth/hash';
 
 
 function App() {
-  if(!hash.access_token) return <Login />
+  // if(!hash.access_token) return <Login />
   return (
     <div>
       {/* <Switch> */}
