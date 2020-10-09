@@ -40,7 +40,7 @@ const Home = () => {
     try{spotifyConnect(localStorage.getItem('token'))}
     // if the token is old, then it sets the token to refresh, which will render the Login component again
     catch(error) {
-      setToken('refresh')
+      console.log(error)
     }
   }, [token])
 
@@ -48,19 +48,15 @@ const Home = () => {
     console.log(userData)
   }, [userData])
 
-  if (token === 'refresh') {
-    return <Login />
-  }
-
+  
     return userData ?
       <TokenContext.Provider value={token}>
       <Header />
       <Sidebar />
+      {/* <img src={userData.images[0].url} alt="profile"/>  */}
       </TokenContext.Provider>
       :
-      <div>
-        {/* loading */}
-      </div>
+      <Login />
     
   }
 
