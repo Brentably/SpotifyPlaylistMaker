@@ -1,6 +1,6 @@
 import React from "react"
 import { authEndpoint, clientId, redirectUri, scopes } from "../auth/config"
-import Modal from "react-bootstrap/Modal"
+// import Modal from "react-bootstrap/Modal"
 import Button from "react-bootstrap/Button"
 import styled from "styled-components"
 
@@ -51,18 +51,6 @@ const Login = () => {
         </ModalBody>
         </CenteredDiv>
     </Body>
-  )
-
-  return (
-    <>
-      <Modal show={true} centered className="myModal" animation={false}>
-        <Modal.Body className="bg-dark myModal">
-          <br />
-          
-          <br />
-        </Modal.Body>
-      </Modal>
-    </>
   )
 }
 
