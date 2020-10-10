@@ -3,7 +3,7 @@ export const authEndpoint = "https://accounts.spotify.com/authorize";
 
 // Replace with your app's client ID, redirect URI and desired scopes
 export const clientId = "4451d90a4f634c33b6f4e015d616ab44";
-export const redirectUri = "https://brentably.github.io/SpotifyPlaylistMaker/";
+export const redirectUri = "%PUBLIC_URL%";
 export const scopes = [
     "ugc-image-upload",
     "user-top-read",
