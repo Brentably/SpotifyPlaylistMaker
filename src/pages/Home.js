@@ -49,7 +49,7 @@ const Home = () => {
     return userData ?
       <TokenContext.Provider value={token}>
       <Header userData={userData}/>
-      <Sidebar />
+      {/* <Sidebar /> */}
       </TokenContext.Provider>
       :
       <Login />
