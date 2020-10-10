@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Login from '../components/Login';
 import '../App.css'
+export const TokenContext = React.createContext()
 
 
 const Home = () => {
@@ -11,13 +12,14 @@ const Home = () => {
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
-  const TokenContext = React.createContext()
 
   // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that
   useEffect(()=> {
     if(hash.access_token) {
       setToken(hash.access_token)
+      localStorage.clear()
       localStorage.setItem('token', hash.access_token)
+      console.log(hash.access_token)
     } else {
       setToken(localStorage.getItem('token'))
     }
@@ -33,27 +35,21 @@ const Home = () => {
         headers: {
           'Authorization': `Bearer ${key}`
         }})
-        setUserData(await response.json())
+        if(response.ok) setUserData(await response.json())
       }
-      
-      // spotifyConnect(localStorage.getItem('token'))
-    try{spotifyConnect(localStorage.getItem('token'))}
-    // if the token is old, then it sets the token to refresh, which will render the Login component again
-    catch(error) {
-      console.log(error)
-    }
-  }, [token])
+      spotifyConnect(localStorage.getItem('token'))
+  }, [/*token*/])
 
-  useEffect(() => {
-    console.log(userData)
-  }, [userData])
+  // useEffect(() => {
+  //   console.log(userData)
+  // }, [userData])
 
   
+
     return userData ?
       <TokenContext.Provider value={token}>
-      <Header />
+      <Header userData={userData}/>
       <Sidebar />
-      {/* <img src={userData.images[0].url} alt="profile"/>  */}
       </TokenContext.Provider>
       :
       <Login />
