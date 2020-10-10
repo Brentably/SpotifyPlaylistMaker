@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fbdd3ed701c350ecada4b1e7548a52b8",
+    "revision": "42657eef4c18428c6e8a67d964f94d97",
     "url": "/SpotifyPlaylistMaker/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SpotifyPlaylistMaker/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "84019fb1fcc9f1478a2a",
+    "revision": "e14435fabe990d56e326",
     "url": "/SpotifyPlaylistMaker/static/css/main.7a1cf9a9.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SpotifyPlaylistMaker/static/js/2.2b4f9fb5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "84019fb1fcc9f1478a2a",
-    "url": "/SpotifyPlaylistMaker/static/js/main.92dafc5a.chunk.js"
+    "revision": "e14435fabe990d56e326",
+    "url": "/SpotifyPlaylistMaker/static/js/main.981bf7fc.chunk.js"
   },
   {
     "revision": "2a2f728cdd39f1c14597",
