@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import hash from "../auth/hash"
 import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import Login from '../components/Login';
 import '../App.css'
 export const TokenContext = React.createContext()
@@ -49,6 +49,11 @@ const Home = () => {
     return userData ?
       <TokenContext.Provider value={token}>
       <Header userData={userData}/>
+      <ul className='text-silver nunito-font'>
+        <li>Playlists</li>
+        <li>Albums</li>
+        <li>Artists</li>
+      </ul>
       {/* <Sidebar /> */}
       </TokenContext.Provider>
       :
