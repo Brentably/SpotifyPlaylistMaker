@@ -1,8 +1,8 @@
 import React from 'react';
-import Login from './components/Login'
+// import Login from './components/Login'
 import Home from './pages/Home'
 // import {Switch, Route} from "react-router-dom"
-import hash from './auth/hash';
+// import hash from './auth/hash';
 // not using react router rn
 
 
