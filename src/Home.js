@@ -1,9 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import hash from "./auth/hash"
 import Header from './components/Header';
-// import Sidebar from '../components/Sidebar';
 import Login from './components/Login';
 import MusicTypeSelector from './components/MusicTypeSelector';
+import Playlists from './components/Playlists'
+// import Albums from './components/Albums'
+// import Artists from './components/Artists'
 import './App.css'
 export const TokenContext = React.createContext()
 
@@ -27,7 +29,7 @@ const Home = () => {
     }
   }, [])
 
-
+// calls the api, helps make sure everything is working
   useEffect(() => {
     const spotifyConnect = async (key) => {
       if(!key) return
@@ -39,8 +41,8 @@ const Home = () => {
         }})
         if(response.ok) setUserData(await response.json())
       }
-      spotifyConnect(localStorage.getItem('token'))
-  }, [/*token*/])
+      spotifyConnect(token)
+  }, [token])
 
   // useEffect(() => {
   //   console.log(userData)
@@ -52,7 +54,9 @@ const Home = () => {
       <TokenContext.Provider value={token}>
       <Header userData={userData}/>
       <MusicTypeSelector type={musicType} setType={setMusicType}/>
-      
+      {musicType === "Playlists" && <Playlists />}
+      {/* {musicType === "Albums" && <Playlists />} */}
+      {/* {musicType === "Artists" && <Playlists />} */}
 
       </TokenContext.Provider>
       :
