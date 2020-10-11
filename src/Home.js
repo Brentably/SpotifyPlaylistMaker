@@ -61,7 +61,7 @@ const Home = () => {
         <TokenContext.Provider value={token}>
         <Header userData={userData}/>
         <MusicTypeSelector type={musicType} setType={setMusicType}/>
-        {musicType === "Playlists" && <Playlists />}
+        <Playlists undisplay={musicType !== "Playlists" && true}/>
         {/* {musicType === "Albums" && <Playlists />} */}
         {/* {musicType === "Artists" && <Playlists />} */}
   

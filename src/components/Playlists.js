@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import {TokenContext} from '../Home'
 import PlaylistCard from './PlaylistCard'
 import Loading from './Loading'
-const Playlists = () => {
+
+
+const Playlists = (props) => {
     const token = useContext(TokenContext)
     const [playlists, setPlaylists] = useState(null)
+
     useEffect(() => {
         const spotifyConnect = async (key) => {
           if(!key) return
@@ -19,18 +22,18 @@ const Playlists = () => {
           spotifyConnect(token)
       }, [token])
 
-    useEffect(() => {
-        console.log(playlists)
-        playlists && console.log(playlists.items[0])
-    }, [playlists])  
+    // useEffect(() => {
+    //     console.log(playlists)
+    //     playlists && console.log(playlists.items[0])
+    // }, [playlists])  
 
 
 
 
     return playlists ? (
-    <>
+    <div className={props.undisplay && "hidden"}>
     {playlists.items.map((playlist) => <PlaylistCard {...playlist} key={playlist.id}/> )}
-    </>)
+    </div>)
     : 
     <Loading />
 }
