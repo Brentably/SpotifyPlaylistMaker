@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import {TokenContext} from '../Home'
+import React, { useEffect, useState } from 'react'
 import PlaylistCard from './PlaylistCard'
 import Loading from './Loading'
 
 
 const Playlists = (props) => {
-    const token = useContext(TokenContext)
+    const {token} = props
     const [playlists, setPlaylists] = useState(null)
 
     useEffect(() => {

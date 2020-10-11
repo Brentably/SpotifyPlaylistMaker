@@ -60,15 +60,13 @@ const Home = () => {
 
 
     if(userData) {
-      return (
-        <TokenContext.Provider value={token}>
+      return (<>
         <Header userData={userData}/>
         <MusicTypeSelector type={musicType} setType={setMusicType}/>
-        <Playlists undisplay={musicType !== "Playlists" && true}/>
-        {/* {musicType === "Albums" && <Playlists />} */}
-        {/* {musicType === "Artists" && <Playlists />} */}
-  
-        </TokenContext.Provider>)
+        <Playlists token={token} undisplay={musicType !== "Playlists" && true}/>
+        {/* {musicType === "Albums" && <Albums />} */}
+        {/* {musicType === "Artists" && <Artists />} */}
+        </>)
     } else if (failed) {
       return <Login />
       } else {
