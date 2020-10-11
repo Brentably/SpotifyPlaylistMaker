@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <Body>
       <CenteredDiv>
-        <ModalHeader className="fredoka-font">BPM Playlist Maker</ModalHeader>
+        <ModalHeader className="font-fredoka">BPM Playlist Maker</ModalHeader>
         <ModalBody >
           This app allows you to create playlists based on the BPM of songs to
             create perfectly customized running playlists.<br/>

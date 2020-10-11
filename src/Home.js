@@ -3,7 +3,8 @@ import hash from "./auth/hash"
 import Header from './components/Header';
 // import Sidebar from '../components/Sidebar';
 import Login from './components/Login';
-import '../App.css'
+import MusicTypeSelector from './components/MusicTypeSelector';
+import './App.css'
 export const TokenContext = React.createContext()
 
 
@@ -12,6 +13,7 @@ const Home = () => {
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
+  const [musicType, setMusicType] = useState("playlists")
 
   // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that
   useEffect(()=> {
@@ -49,7 +51,7 @@ const Home = () => {
     return userData ?
       <TokenContext.Provider value={token}>
       <Header userData={userData}/>
-
+      <MusicTypeSelector type={musicType} setType={setMusicType}/>
       </TokenContext.Provider>
       :
       <Login />
