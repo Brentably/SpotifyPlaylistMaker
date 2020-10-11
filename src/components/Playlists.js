@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {TokenContext} from '../Home'
 import Login from './Login'
+import PlaylistCard from './PlaylistCard'
 const Playlists = () => {
     const token = useContext(TokenContext)
     const [playlists, setPlaylists] = useState(null)
@@ -20,7 +21,7 @@ const Playlists = () => {
 
     useEffect(() => {
         console.log(playlists)
-        playlists && console.log(playlists.items)
+        playlists && console.log(playlists.items[0])
     }, [playlists])  
 
 
@@ -28,7 +29,7 @@ const Playlists = () => {
 
     return playlists ? (
     <>
-    <div className="text-white"></div>
+    {playlists.items.map((playlist) => <PlaylistCard {...playlist} key={playlist.id}/> )}
     </>)
     : 
     <Login />
