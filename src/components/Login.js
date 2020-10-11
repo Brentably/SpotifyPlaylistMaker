@@ -40,11 +40,10 @@ const Login = () => {
             create perfectly customized running playlists.<br/>
           
           <Button
-            variant="success"
             href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
               "%20"
             )}&response_type=token&show_dialog=false`}
-            className="my-3"
+            className="my-3" style={{backgroundColor: "#1dd05d"}}
           >
             Connect to Spotify
           </Button>

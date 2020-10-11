@@ -99,8 +99,13 @@
   font-family: "Nunito", sans-serif;
   font-weight: 700;
 }
-.selected {
+.font-nunito-semibold {
   font-family: "Nunito", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
+}
+.selected {
+  /* font-family: "Nunito", sans-serif; */
+  /* font-weight: 700; */
   color: white;
+  border-bottom: 1px solid #1dd05d;
 }

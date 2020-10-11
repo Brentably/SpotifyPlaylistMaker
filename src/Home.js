@@ -52,6 +52,8 @@ const Home = () => {
       <TokenContext.Provider value={token}>
       <Header userData={userData}/>
       <MusicTypeSelector type={musicType} setType={setMusicType}/>
+      
+
       </TokenContext.Provider>
       :
       <Login />

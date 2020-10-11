@@ -6,7 +6,7 @@ const Header = (props) => {
 
     return (
         <>
-        <div className=" text-center text-lg sm:text-xl md:text-2xl font-fredoka p-1 flex justify-between tracking-wide text-white">
+        <div className=" text-center text-lg sm:text-xl md:text-2xl font-fredoka p-2 flex justify-between tracking-wide text-white">
                 <span className="flex justify-center self-center">
                 {/* <img src={require("../icons/runnerman.svg")} alt="running / music logo" className="inline mr-1 self-center" style={{verticalAlign: 'middle', height: "1.2em"}}/> */}
                 BPM Playlist Maker
