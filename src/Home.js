@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import hash from "./auth/hash"
 import Header from './components/Header';
 import Login from './components/Login';
+import Loading from './components/Loading';
 import MusicTypeSelector from './components/MusicTypeSelector';
 import Playlists from './components/Playlists'
 // import Albums from './components/Albums'
@@ -16,6 +17,7 @@ const Home = () => {
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
   const [musicType, setMusicType] = useState("Playlists")
+  const [failed, setFailed] = useState(false)
 
   // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that
   useEffect(()=> {
@@ -32,14 +34,19 @@ const Home = () => {
 // calls the api, helps make sure everything is working
   useEffect(() => {
     const spotifyConnect = async (key) => {
-      if(!key) return
+      if(!key) setFailed(true)
       let response = await fetch('https://api.spotify.com/v1/me', {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         headers: {
           'Authorization': `Bearer ${key}`
         }})
+        console.log(response.ok)
+        console.log(response.status)
+
         if(response.ok) setUserData(await response.json())
+        if(!response.ok || response.status === "401") setFailed(true)
+
       }
       spotifyConnect(token)
   }, [token])
@@ -48,20 +55,22 @@ const Home = () => {
   //   console.log(userData)
   // }, [userData])
 
+
+    if(userData) {
+      return (
+        <TokenContext.Provider value={token}>
+        <Header userData={userData}/>
+        <MusicTypeSelector type={musicType} setType={setMusicType}/>
+        {musicType === "Playlists" && <Playlists />}
+        {/* {musicType === "Albums" && <Playlists />} */}
+        {/* {musicType === "Artists" && <Playlists />} */}
   
-
-    return userData ?
-      <TokenContext.Provider value={token}>
-      <Header userData={userData}/>
-      <MusicTypeSelector type={musicType} setType={setMusicType}/>
-      {musicType === "Playlists" && <Playlists />}
-      {/* {musicType === "Albums" && <Playlists />} */}
-      {/* {musicType === "Artists" && <Playlists />} */}
-
-      </TokenContext.Provider>
-      :
-      <Login />
-    
+        </TokenContext.Provider>)
+    } else if (failed) {
+      return <Login />
+      } else {
+        return <Loading />
+      }
   }
 
 

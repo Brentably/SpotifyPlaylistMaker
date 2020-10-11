@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {TokenContext} from '../Home'
-import Login from './Login'
 import PlaylistCard from './PlaylistCard'
+import Loading from './Loading'
 const Playlists = () => {
     const token = useContext(TokenContext)
     const [playlists, setPlaylists] = useState(null)
@@ -32,7 +32,7 @@ const Playlists = () => {
     {playlists.items.map((playlist) => <PlaylistCard {...playlist} key={playlist.id}/> )}
     </>)
     : 
-    <Login />
+    <Loading />
 }
 
 export default Playlists
