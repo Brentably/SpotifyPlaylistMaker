@@ -31,7 +31,7 @@ const Playlists = (props) => {
 
 
     return playlists ? (
-    <div className={props.undisplay && "hidden"}>
+    <div className={props.undisplay ? "hidden" : "undefined"}>
     {playlists.items.map((playlist) => <PlaylistCard {...playlist} key={playlist.id}/> )}
     </div>)
     : 

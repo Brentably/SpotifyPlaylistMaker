@@ -34,18 +34,21 @@ const Home = () => {
 // calls the api, helps make sure everything is working
   useEffect(() => {
     const spotifyConnect = async (key) => {
-      if(!key) setFailed(true)
+      // if the key doesn't exist, then it stops the function and allows for the Login component to be rendered
+      if(!key) {
+        setFailed(true)
+        return
+      }
       let response = await fetch('https://api.spotify.com/v1/me', {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         headers: {
           'Authorization': `Bearer ${key}`
         }})
-        console.log(response.ok)
-        console.log(response.status)
-
+        // sets state to the response of the api
         if(response.ok) setUserData(await response.json())
-        if(!response.ok || response.status === "401") setFailed(true)
+        // if the response didn't work, and it had a status of 401 unauthorized, sets failed to true, which renders the login component
+        if(!response.ok && response.status === "401") setFailed(true)
 
       }
       spotifyConnect(token)
