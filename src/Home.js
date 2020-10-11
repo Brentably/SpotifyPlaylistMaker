@@ -33,9 +33,9 @@ const Home = () => {
 
 // calls the api, helps make sure everything is working
   useEffect(() => {
-    const spotifyConnect = async (key) => {
+    const spotifyConnect = async (_token) => {
       // if the key doesn't exist, then it stops the function and allows for the Login component to be rendered
-      if(!key) {
+      if(!_token) {
         setFailed(true)
         return
       }
@@ -43,7 +43,7 @@ const Home = () => {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         headers: {
-          'Authorization': `Bearer ${key}`
+          'Authorization': `Bearer ${_token}`
         }})
         // sets state to the response of the api
         if(response.ok) setUserData(await response.json())
