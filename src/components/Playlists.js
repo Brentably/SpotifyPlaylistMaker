@@ -31,6 +31,7 @@ const Playlists = (props) => {
 
 
     return playlists ? (
+      // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api 
     <div className={props.undisplay ? "hidden" : "undefined"}>
     {playlists.items.map((playlist) => <PlaylistCard {...playlist} key={playlist.id}/> )}
     </div>)
