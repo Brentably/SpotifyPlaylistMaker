@@ -94,3 +94,13 @@
 .font-nunito {
   font-family: "Nunito", sans-serif;
 }
+
+.font-nunito-bold {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+.selected {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: white;
+}

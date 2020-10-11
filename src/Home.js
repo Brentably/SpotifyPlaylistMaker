@@ -13,7 +13,7 @@ const Home = () => {
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
-  const [musicType, setMusicType] = useState("playlists")
+  const [musicType, setMusicType] = useState("Playlists")
 
   // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that
   useEffect(()=> {
