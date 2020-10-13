@@ -68,7 +68,7 @@ const Home = (props) => {
       return (<>
         <Header userData={userData}/>
         <MusicTypeSelector type={musicType} setType={setMusicType}/>
-        <Playlists token={token} undisplay={musicType !== "Playlists" && true}/>
+        <Playlists undisplay={musicType !== "Playlists" && true}/>
         {/* {musicType === "Albums" && <Albums />} */}
         {/* {musicType === "Artists" && <Artists />} */}
         </>)

@@ -2,7 +2,9 @@ import React, { useEffect, useState, useCallback} from 'react'
 import Card from './Card'
 import Loading from './Loading'
 import callAPI from '../helpers/callAPI'
-import InfiniteScroll from 'react-infinite-scroller';;
+import InfiniteScroll from 'react-infinite-scroller';
+import {connect} from 'react-redux';
+
 
 const Playlists = (props) => {
   const {token} = props
@@ -58,7 +60,7 @@ const Playlists = (props) => {
   <Loading />
 }
 
-export default Playlists
+export default connect((store) => ({token: store.token}), {})(Playlists)
 
 
 
