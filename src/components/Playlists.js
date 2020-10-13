@@ -17,24 +17,32 @@ const Playlists = (props) => {
     // }, [playlists])  
     
     
+// when the scroller reaches the bottom, this is the load more function
   const handleLoadMore = async () => {
+    //  returns there are no more playlists to load
     if(!nextPlaylistUrl) return;
+
     const response = await callAPI(nextPlaylistUrl, token)
     if(response.ok) {
       const body = await response.json()
+      // puts playlists in state, which triggers a re-render
       setPlaylists((prevPlaylists) => {
         return [...prevPlaylists, ...body.items]
       })
       console.log(body)
+      // and sets the next playlist url for the next time the load more function is called
       setNextPlaylistUrl(body.next)
     }
   }
+
+// annoying syntax used to load the initial data on the first render
   const initHandleLoadMore = useCallback(handleLoadMore, []);
   useEffect(() => {initHandleLoadMore()}, [initHandleLoadMore])
       
-  // if playlists are greater than 0
+  // if state has been updated
   return (playlists.length > 0) ? (
-    // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api 
+    // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api.
+    // there's got to be a better way to do this though...
   <div className={props.undisplay ? "hidden" : "undefined"}>
     <InfiniteScroll
   pageStart={0}

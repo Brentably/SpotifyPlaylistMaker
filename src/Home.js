@@ -11,7 +11,6 @@ import {connect} from "react-redux"
 import {addToken} from './redux'
 import './App.css'
 
-export const TokenContext = React.createContext()
 
 
 const Home = (props) => {
@@ -20,9 +19,10 @@ const Home = (props) => {
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
   const [musicType, setMusicType] = useState("Playlists")
-  const [failed, setFailed] = useState(false)
+  const [authFailed, setAuthFailed] = useState(false)
 
-  // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that, also sets the token in redux global store with props.addToken(token)
+  // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that, also sets the token in redux global store with props.addToken
+  // I'm using localStorage right now, mainly for my own development purposes, it keeps me from having to hit login every time I edit code and want to look at the app.
   useEffect(()=> {
     if(hash.access_token) {
       setToken(hash.access_token)
@@ -34,14 +34,14 @@ const Home = (props) => {
       setToken(localStorage.getItem('token'))
       addToken(localStorage.getItem('token'))
     }
-  }, [addToken]) /* addToken will never change */
+  }, [addToken]) /* addToken will never change, it's just a required dependency*/
 
 // calls the api, helps make sure everything is working
   useEffect(() => {
     const spotifyConnect = async (_token) => {
       // if the key doesn't exist, then it stops the function and allows for the Login component to be rendered
       if(!_token) {
-        setFailed(true)
+        setAuthFailed(true)
         return
       }
       let response = await fetch('https://api.spotify.com/v1/me', {
@@ -53,7 +53,7 @@ const Home = (props) => {
         // sets state to the response of the api
         if(response.ok) setUserData(await response.json())
         // if the response didn't work, and it had a status of 401 unauthorized, sets failed to true, which renders the login component
-        if(!response.ok && response.status === "401") setFailed(true)
+        if(!response.ok && response.status === "401") setAuthFailed(true)
 
       }
       spotifyConnect(token)
@@ -72,7 +72,7 @@ const Home = (props) => {
         {/* {musicType === "Albums" && <Albums />} */}
         {/* {musicType === "Artists" && <Artists />} */}
         </>)
-    } else if (failed) {
+    } else if (authFailed) {
       return <Login />
       } else {
         return <Loading />
@@ -83,5 +83,5 @@ const Home = (props) => {
 
 
 
-
-export default connect((state) => ({token: state.token}), {addToken})(Home)
+// redux: this component isn't pulling anything from redux, but IS pushing the token to redux store
+export default connect(null, {addToken})(Home)

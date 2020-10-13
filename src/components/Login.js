@@ -28,8 +28,6 @@ margin: 0 1em;
 text-align: center;
 `
 
-
-
 const Login = () => {
   return (
     <Body>
