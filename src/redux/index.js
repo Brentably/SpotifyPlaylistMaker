@@ -1,25 +1,14 @@
-import redux, {createStore} from "redux"
+import {createStore} from "redux"
 
-function increment() {
-    return {
-        type: "INCREMENT"
-    }
-}
 
-function decrement() {
-    return {
-        type: "DECREMENT"
-    }
-}
-
-function addToken(token) {
+export function addToken(token) {
     return {
         type: "ADD_TOKEN",
         payload: token
     }
 }
 
-initState = {
+const initState = {
     token: null
 }
 

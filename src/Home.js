@@ -7,29 +7,36 @@ import MusicTypeSelector from './components/MusicTypeSelector';
 import Playlists from './components/Playlists'
 // import Albums from './components/Albums'
 // import Artists from './components/Artists'
+import {connect} from "react-redux"
+import {addToken} from './redux'
 import './App.css'
+
 export const TokenContext = React.createContext()
 
 
-const Home = () => {
-
+const Home = (props) => {
+  const {addToken} = props
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
   const [musicType, setMusicType] = useState("Playlists")
   const [failed, setFailed] = useState(false)
 
-  // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that
+  // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that, also sets the token in redux global store with props.addToken(token)
   useEffect(()=> {
     if(hash.access_token) {
       setToken(hash.access_token)
       localStorage.clear()
       localStorage.setItem('token', hash.access_token)
+
+      addToken(hash.access_token)
       console.log(hash.access_token)
     } else {
       setToken(localStorage.getItem('token'))
+
+      addToken(hash.access_token)
     }
-  }, [])
+  }, [addToken]) /* addToken will never change */
 
 // calls the api, helps make sure everything is working
   useEffect(() => {
@@ -76,4 +83,7 @@ const Home = () => {
 
 
 
-export default Home
+
+
+
+export default connect((state) => ({token: state.token}), {addToken})(Home)
