@@ -1,19 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const GlobalContext = React.createContext()
 
 const GlobalContextProvider = (props) => {
-    // change to useReducer in the future
+
     const [context, setContext] = useState({})
 
     return (
-        <GlobalContext.Provider value={{state: context, setState: setContext}}>
+        <GlobalContext.Provider value={{context, setContext}}>
             {props.children}
         </GlobalContext.Provider>
     )
 }
 
 
-export default {GlobalContextProvider, GlobalContext}
+export {GlobalContextProvider, GlobalContext}
 
 
