@@ -39,3 +39,12 @@ const Playlists = (props) => {
 }
 
 export default Playlists
+
+
+
+// function mapStateToProps(globalState) {
+//   // return an object where the keys are the name of the prop your component wants,
+//   // values are the actual parts of the global state your component wants
+// }
+
+// export default connect(/* What parts of state do you want? */, /* What actions to dispatch? */)(App)
