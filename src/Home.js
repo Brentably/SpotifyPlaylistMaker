@@ -28,13 +28,11 @@ const Home = (props) => {
       setToken(hash.access_token)
       localStorage.clear()
       localStorage.setItem('token', hash.access_token)
-
       addToken(hash.access_token)
       console.log(hash.access_token)
     } else {
       setToken(localStorage.getItem('token'))
-
-      addToken(hash.access_token)
+      addToken(localStorage.getItem('token'))
     }
   }, [addToken]) /* addToken will never change */
 

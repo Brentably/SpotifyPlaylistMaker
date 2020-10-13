@@ -1,41 +1,62 @@
 import React, { useEffect, useState } from 'react'
-import PlaylistCard from './PlaylistCard'
+import Card from './Card'
 import Loading from './Loading'
-
+import callAPI from '../helpers/callAPI'
+import InfiniteScroll from 'react-infinite-scroller';;
 
 const Playlists = (props) => {
-    const {token} = props
-    const [playlists, setPlaylists] = useState(null)
-
-    useEffect(() => {
-        const spotifyConnect = async (key) => {
-          if(!key) return
-          let response = await fetch('https://api.spotify.com/v1/me/playlists?offset=0&limit=20', {
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
-            mode: 'cors', // no-cors, *cors, same-origin
-            headers: {
-              'Authorization': `Bearer ${key}`
-            }})
-            if(response.ok) setPlaylists(await response.json())
-          }
-          spotifyConnect(token)
-      }, [token])
-
-    // useEffect(() => {
-    //     console.log(playlists)
-    //     playlists && console.log(playlists.items[0])
-    // }, [playlists])  
+  const {token} = props
+  const [playlists, setPlaylists] = useState([])
+  const [nextPlaylistUrl, setNextPlaylistUrl] = useState(true)
 
 
+  useEffect(() => {
+    (async () => {
+      const response = await callAPI('https://api.spotify.com/v1/me/playlists?offset=0&limit=20', token)
+      if(response.ok) {
+        const body = await response.json()
+        setPlaylists((prevPlaylists) => {
+        return [...prevPlaylists, ...body.items]
+        })
+        setNextPlaylistUrl(body.next)
+      }
+    })()
+    }, [token])
+
+  useEffect(() => {
+      console.log(playlists)
+      // playlists && console.log(playlists.items[0])
+  }, [playlists])  
+
+  function handleLoadMore() {
+    (async () => {
+      const response = await callAPI(nextPlaylistUrl, token)
+      if(response.ok) {
+        const body = await response.json()
+        setPlaylists((prevPlaylists) => {
+        return [...prevPlaylists, ...body.items]
+        })
+        setNextPlaylistUrl(body.next)
+      }
+    })()
+  }
 
 
-    return playlists ? (
-      // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api 
-    <div className={props.undisplay ? "hidden" : "undefined"}>
-    {playlists.items.map((playlist) => <PlaylistCard {...playlist} key={playlist.id}/> )}
-    </div>)
-    : 
-    <Loading />
+  // if playlists are greater than 0
+  return (playlists.length > 0) ? (
+    // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api 
+  <div className={props.undisplay ? "hidden" : "undefined"}>
+    <InfiniteScroll
+  pageStart={0}
+  loadMore={handleLoadMore}
+  hasMore={nextPlaylistUrl}
+  loader={<div className="loader" key={0}>Loading ...</div>}
+    >
+  {playlists.map(playlist => <Card {...playlist} key={playlist.id} musicType="Playlist"/> )}
+    </InfiniteScroll>
+  </div>)
+  : 
+  <Loading />
 }
 
 export default Playlists
