@@ -47,6 +47,7 @@ const Playlists = (props) => {
     <InfiniteScroll
   pageStart={0}
   loadMore={handleLoadMore}
+  // the api returns NULL if you've loaded all the playlists, which will set the hasMore boolean to false, and stop infinite scroll from trying to load any more
   hasMore={Boolean(nextPlaylistUrl)}
   loader={<div className="loader" key={0}>Loading ...</div>}
     >
