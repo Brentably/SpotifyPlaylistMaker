@@ -5,11 +5,17 @@ import Login from './components/Login';
 import Loading from './components/Loading';
 import MusicTypeSelector from './components/MusicTypeSelector';
 import Playlists from './components/Playlists'
-// import Albums from './components/Albums'
-// import Artists from './components/Artists'
+import Albums from './components/Albums'
+import Artists from './components/Artists'
 import {connect} from "react-redux"
 import {addToken} from './redux'
 import './App.css'
+import {
+  MemoryRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
@@ -67,10 +73,23 @@ const Home = (props) => {
     if(userData) {
       return (<>
         <Header userData={userData}/>
-        <MusicTypeSelector type={musicType} setType={setMusicType}/>
-        <Playlists undisplay={musicType !== "Playlists" && true}/>
-        {/* {musicType === "Albums" && <Albums />} */}
-        {/* {musicType === "Artists" && <Artists />} */}
+        <Router 
+          initialEntries={["/playlists", "/albums", "/artists"]}
+          initialIndex={0}
+          >
+          <MusicTypeSelector type={musicType} setType={setMusicType}/>
+          <Switch>
+            <Route path="/playlists">
+              <Playlists />
+            </Route>
+            <Route path="/albums">
+              <Albums />
+            </Route>
+            <Route path="/">
+              <Artists />
+            </Route>
+          </Switch>
+        </Router>
         </>)
     } else if (authFailed) {
       return <Login />
