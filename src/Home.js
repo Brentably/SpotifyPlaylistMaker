@@ -14,7 +14,6 @@ import {
   MemoryRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 
@@ -24,7 +23,6 @@ const Home = (props) => {
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
-  const [musicType, setMusicType] = useState("Playlists")
   const [authFailed, setAuthFailed] = useState(false)
 
   // checks the url for the token, and sets the token if it's there, otherwise checks local storage and sets that, also sets the token in redux global store with props.addToken
@@ -77,7 +75,7 @@ const Home = (props) => {
           initialEntries={["/playlists", "/albums", "/artists"]}
           initialIndex={0}
           >
-          <MusicTypeSelector type={musicType} setType={setMusicType}/>
+          <MusicTypeSelector/>
           <Switch>
             <Route path="/playlists">
               <Playlists />
@@ -85,7 +83,7 @@ const Home = (props) => {
             <Route path="/albums">
               <Albums />
             </Route>
-            <Route path="/">
+            <Route path="/artists">
               <Artists />
             </Route>
           </Switch>
