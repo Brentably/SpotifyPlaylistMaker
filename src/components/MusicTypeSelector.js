@@ -19,7 +19,7 @@ const MusicTypeSelector = () => {
         <div className="text-silver flex text-xl tracking-wide mt-2 p-2 font-nunito-semibold">
         <NLink to="/playlists" className="text-silver" activeClassName="selected">Playlists</NLink>
         <NLink to="/albums" className="text-silver" activeClassName="selected">Albums</NLink>
-        <NLink to="/artists" className="text-silver" activeClassName="selected">Artists</NLink> 
+        <NLink to="/search" className="text-silver" activeClassName="selected">Search</NLink> 
         </div>
     )
 }

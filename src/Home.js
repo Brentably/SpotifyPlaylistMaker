@@ -6,7 +6,7 @@ import Loading from './components/Loading';
 import MusicTypeSelector from './components/MusicTypeSelector';
 import Playlists from './components/Playlists'
 import Albums from './components/Albums'
-import Artists from './components/Artists'
+import Search from './components/Search'
 import {connect} from "react-redux"
 import {addToken} from './redux'
 import './App.css'
@@ -72,7 +72,7 @@ const Home = (props) => {
       return (<>
         <Header userData={userData}/>
         <Router 
-          initialEntries={["/playlists", "/albums", "/artists"]}
+          initialEntries={["/playlists", "/albums", "/search"]}
           initialIndex={0}
           >
           <MusicTypeSelector/>
@@ -83,8 +83,8 @@ const Home = (props) => {
             <Route path="/albums">
               <Albums />
             </Route>
-            <Route path="/artists">
-              <Artists />
+            <Route path="/search">
+              <Search />
             </Route>
           </Switch>
         </Router>
