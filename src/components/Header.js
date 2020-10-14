@@ -1,5 +1,5 @@
 import React from 'react';
-
+import defaultIcon from "../icons/defaultIcon.svg"
 
 const Header = (props) => {
     const {userData} = props
@@ -13,7 +13,7 @@ const Header = (props) => {
                 </span>
                 {/* pulls in the profile picture and the css just, uhhh, makes it circular and stuff */}
                 
-                <img src={userData.images[0].url} alt="profile" className="self-center mr-2" style={{maxHeight: "1.2em", width: "1.2em", objectFit: "cover", borderRadius: "50%"}}/> 
+                <img src={userData.images[0] ? userData.images[0].url : defaultIcon} alt="profile" className="self-center mr-2" style={{maxHeight: "1.2em", width: "1.2em", objectFit: "cover", borderRadius: "50%"}}/> 
         </div>
         </>
     )

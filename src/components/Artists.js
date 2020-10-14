@@ -58,7 +58,7 @@ const Artists = (props) => {
         }
       >
         {artists.map((artist) => (
-          <Card {...artist} key={artist.id} type="artist" />
+          <Card key={artist.id} type="artist" />
         ))}
       </InfiniteScroll>
     </div>
