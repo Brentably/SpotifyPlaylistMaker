@@ -1,7 +1,8 @@
 import React from 'react'
 import Login from '../components/Login'
+// import {store} from './redux'
 
-const callAPI = async (fetchURL, token) => {
+const fetchGet = async (fetchURL, token) => {
         let response = await fetch(fetchURL, {
           method: 'GET', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
@@ -14,4 +15,4 @@ const callAPI = async (fetchURL, token) => {
           else return await response
 }
 
-export default callAPI
+export default fetchGet

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react"
 import Card from "./Card"
 import Loading from "./Loading"
-import callAPI from "../helpers/callAPI"
+import fetchGet from "../helpers/fetchGet"
 import InfiniteScroll from "react-infinite-scroller"
 import { connect } from "react-redux"
 
@@ -19,7 +19,7 @@ const Albums = (props) => {
     //  returns there are no more playlists to load
     if (!nextAlbumUrl) return
 
-    const response = await callAPI(nextAlbumUrl, token)
+    const response = await fetchGet(nextAlbumUrl, token)
     if (response.ok) {
       const body = await response.json()
       // puts playlists in state, which triggers a re-render

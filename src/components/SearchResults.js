@@ -1,6 +1,6 @@
 import React, {useEffect, } from 'react'
 import {connect} from 'react-redux'
-import callAPI from '../helpers/callAPI'
+import fetchGet from '../helpers/fetchGet'
 
 
 const SearchResults = (props) => {
@@ -8,7 +8,7 @@ const SearchResults = (props) => {
 
  useEffect(() => {
   (async () => {
-   const response = await callAPI("url", token)
+   const response = await fetchGet("url", token)
 
 
   })()
