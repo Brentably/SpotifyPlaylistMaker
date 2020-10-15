@@ -43,7 +43,7 @@ const Albums = (props) => {
   return albums.length > 0 ? (
     // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api.
     // there's got to be a better way to do this though...
-    <div>
+    <>
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
@@ -58,7 +58,7 @@ const Albums = (props) => {
           return <Card key={album.id} type="album" name={album.name} owner={owner} imgSrc={album.images[0] ? album.images[0].url : "default"}/>
         })}
       </InfiniteScroll>
-    </div>
+    </>
   ) : (
     <Loading />
   )

@@ -73,7 +73,7 @@ const Home = (props) => {
         <Header userData={userData}/>
         <Router 
           initialEntries={["/playlists", "/albums", "/search"]}
-          initialIndex={0}
+          initialIndex={2}
           >
           <MusicTypeSelector/>
           <Switch>
