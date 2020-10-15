@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import defaultIcon from "../icons/defaultIcon.svg"
 
 const Header = (props) => {

@@ -1,4 +1,5 @@
-// import React from 'react'
+import React from 'react'
+import Login from '../components/Login'
 
 const callAPI = async (fetchURL, token) => {
         let response = await fetch(fetchURL, {
@@ -8,6 +9,8 @@ const callAPI = async (fetchURL, token) => {
             'Authorization': `Bearer ${token}`
           }})
           if(response.ok && response.status === "200") return await response.json()
+          // if authorization token is old, attempts to help the user login again, if this breaks, try a redirect?
+          else if(response.status === "401") return <Login />
           else return await response
 }
 

@@ -17,25 +17,33 @@ const NLink = styled(NavLink)`
 const MusicTypeSelector = () => {
     const stickyHeader = useRef(null)
     const [stick, setStick] = useState(false)
+    const [scrollVal, setScrollVal] = useState(null)
+    const scrollValRef = useRef()
+    scrollValRef.current = scrollVal
+
 
     function handleScroll() {
-        console.log(this.scrollY)
-        console.log(stickyHeader.current.offsetTop)
-        // console.dir(stickyHeader.current)
-        if(this.scrollY > stickyHeader.current.offsetTop) {
-            setStick(true)
-        } else setStick(false)
-
+        // console.log(this.scrollY)
+        // console.log(scrollValRef.current)
+        if(this.scrollY > scrollValRef.current) {
+          setStick(true)
+        } else {
+          setStick(false)
+        }
     }
+
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
+        // On initial render, useEffect grabs the distance the stickyHeader is from the top, then sets the scrollValue to that value, which is saved and remembered, so once the stickyHeader's position is set to fixed, it doesn't override and say that the  sticky header has no distance from the top
+        // the only problem here is that if someone opens the window, scrolls down, resizes the window and scrolls up, it'll look a little funny, but that's a edge / corner case, and I'm not too worried about that now. I may be able to fix that if I take a different approach with my if/else statement in the handleScroll, but then my handleScroll would have to know the stick value
+        setScrollVal(stickyHeader.current.offsetTop)
         return () => window.removeEventListener('scroll', handleScroll)
-    })
+    }, [])
   return (
       <>
     {stick? <div style={{width: "100vw", height: `${stickyHeader.current.clientHeight}px`}}></div> : null}
-    <div className={stick ? "sticky text-silver flex text-xl pt-2 tracking-wide p-2 font-nunito-semibold" : "static text-silver flex text-xl toffsetTop p-2 font-nunito-semibold"} ref={stickyHeader}>
+    <div className={stick ? "stick text-silver flex text-xl tracking-wide p-2 font-nunito-semibold" : "w-full text-silver flex tracking-wide text-xl p-2 font-nunito-semibold"} ref={stickyHeader}>
       <NLink to="/playlists" className="text-silver" activeClassName="selected">
         Playlists
       </NLink>
