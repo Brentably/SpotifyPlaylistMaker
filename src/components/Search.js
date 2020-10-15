@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Search = () => {
+    const [value, setValue] = useState("")
     return (
-        <div>search</div>
+        <input type="search" placeholder="Search" value={value} onChange={event => setValue(event.target.value)}/>
     )
 }
 

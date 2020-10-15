@@ -12,16 +12,7 @@ const Albums = (props) => {
     "https://api.spotify.com/v1/me/albums?offset=0&limit=40"
   )
 
-  useEffect(() => {
-    ;(async () => {
-      const response = await callAPI(
-        "https://api.spotify.com/v1/me/albums?offset=0&limit=40",
-        token
-      )
-      const body = await response.json()
-      console.log(body)
-    })()
-  }, [])
+
 
   // when the scroller reaches the bottom, this is the load more function
   const handleLoadMore = async () => {
@@ -59,9 +50,7 @@ const Albums = (props) => {
         // the api returns NULL if you've loaded all the playlists, which will set the hasMore boolean to false, and stop infinite scroll from trying to load any more
         hasMore={Boolean(nextAlbumUrl)}
         loader={
-          <div className="loader" key={0}>
-            Loading ...
-          </div>
+          <Loading key="239rehoufwds"/>
         }
       >
         {albums.map((album) => {
