@@ -111,8 +111,11 @@
   border-bottom: 1px solid #1dd05d;
 }
 
-.partial-sticky {
-  background-color: rgb(19, 19, 19)
+.sticky {
+  background-color: rgb(19, 19, 19);
+  position: fixed;
+  top: 0;
+  z-index: 99;
 }
 
 .ellipsis {
