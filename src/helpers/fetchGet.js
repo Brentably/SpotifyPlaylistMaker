@@ -1,13 +1,17 @@
 import React from 'react'
 import Login from '../components/Login'
-// import {store} from './redux'
+import store from '../redux'
 
-const fetchGet = async (fetchURL, token) => {
-        let response = await fetch(fetchURL, {
+
+
+// this function allows for easy fetch calls, b/c it handles the token
+const fetchGet = async (endpoint) => {
+
+        let response = await fetch(endpoint, {
           method: 'GET', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
           headers: {
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${store.getState().token}`
           }})
           if(response.ok && response.status === "200") return await response.json()
           // if authorization token is old, attempts to help the user login again, if this breaks, try a redirect?
