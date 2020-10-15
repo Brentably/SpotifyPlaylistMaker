@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from "react"
 import styled from "styled-components"
 import { NavLink } from "react-router-dom"
-import Search from "./Search"
 
 const NLink = styled(NavLink)`
   margin-right: 1em;
@@ -50,8 +49,8 @@ const MusicTypeSelector = () => {
       <NLink to="/albums" className="text-silver" activeClassName="selected">
         Albums
       </NLink>
-      <NLink to="/search">
-        <Search />
+      <NLink to="/search" className="text-silver" activeClassName="selected">
+        Search
       </NLink>
     </div>
     </>

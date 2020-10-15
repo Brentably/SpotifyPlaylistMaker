@@ -6,7 +6,7 @@ import Loading from './components/Loading';
 import MusicTypeSelector from './components/MusicTypeSelector';
 import Playlists from './components/Playlists'
 import Albums from './components/Albums'
-import SearchResults from './components/SearchResults'
+import Search from './components/Search'
 import {connect} from "react-redux"
 import {addToken} from './redux'
 import './App.css'
@@ -84,7 +84,7 @@ const Home = (props) => {
               <Albums />
             </Route>
             <Route path="/search">
-              <SearchResults />
+              <Search />
             </Route>
           </Switch>
         </Router>
