@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/SpotifyPlaylistMaker/static/css/main.c6bfee75.chunk.css",
-    "main.js": "/SpotifyPlaylistMaker/static/js/main.97da6ac6.chunk.js",
-    "main.js.map": "/SpotifyPlaylistMaker/static/js/main.97da6ac6.chunk.js.map",
+    "main.css": "/SpotifyPlaylistMaker/static/css/main.941f1ce9.chunk.css",
+    "main.js": "/SpotifyPlaylistMaker/static/js/main.14226e43.chunk.js",
+    "main.js.map": "/SpotifyPlaylistMaker/static/js/main.14226e43.chunk.js.map",
     "runtime-main.js": "/SpotifyPlaylistMaker/static/js/runtime-main.2dffec97.js",
     "runtime-main.js.map": "/SpotifyPlaylistMaker/static/js/runtime-main.2dffec97.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/SpotifyPlaylistMaker/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.ee7e4dca.chunk.js": "/SpotifyPlaylistMaker/static/js/2.ee7e4dca.chunk.js",
-    "static/js/2.ee7e4dca.chunk.js.map": "/SpotifyPlaylistMaker/static/js/2.ee7e4dca.chunk.js.map",
+    "static/js/2.9a54495a.chunk.js": "/SpotifyPlaylistMaker/static/js/2.9a54495a.chunk.js",
+    "static/js/2.9a54495a.chunk.js.map": "/SpotifyPlaylistMaker/static/js/2.9a54495a.chunk.js.map",
     "index.html": "/SpotifyPlaylistMaker/index.html",
-    "precache-manifest.c6e39505183e43d5150b6d9e4fded362.js": "/SpotifyPlaylistMaker/precache-manifest.c6e39505183e43d5150b6d9e4fded362.js",
+    "precache-manifest.5e0064c9680d4ba63fc66548a9b2054c.js": "/SpotifyPlaylistMaker/precache-manifest.5e0064c9680d4ba63fc66548a9b2054c.js",
     "service-worker.js": "/SpotifyPlaylistMaker/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/SpotifyPlaylistMaker/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.c6bfee75.chunk.css.map": "/SpotifyPlaylistMaker/static/css/main.c6bfee75.chunk.css.map",
-    "static/js/2.ee7e4dca.chunk.js.LICENSE.txt": "/SpotifyPlaylistMaker/static/js/2.ee7e4dca.chunk.js.LICENSE.txt",
+    "static/css/main.941f1ce9.chunk.css.map": "/SpotifyPlaylistMaker/static/css/main.941f1ce9.chunk.css.map",
+    "static/js/2.9a54495a.chunk.js.LICENSE.txt": "/SpotifyPlaylistMaker/static/js/2.9a54495a.chunk.js.LICENSE.txt",
     "static/media/App.css": "/SpotifyPlaylistMaker/static/media/Nunito-SemiBoldItalic.cc0b18c6.ttf",
-    "static/media/defaultIcon.svg": "/SpotifyPlaylistMaker/static/media/defaultIcon.cd9692eb.svg"
+    "static/media/defaultIcon.svg": "/SpotifyPlaylistMaker/static/media/defaultIcon.cd9692eb.svg",
+    "static/media/search.svg": "/SpotifyPlaylistMaker/static/media/search.6f300368.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.2dffec97.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.ee7e4dca.chunk.js",
-    "static/css/main.c6bfee75.chunk.css",
-    "static/js/main.97da6ac6.chunk.js"
+    "static/js/2.9a54495a.chunk.js",
+    "static/css/main.941f1ce9.chunk.css",
+    "static/js/main.14226e43.chunk.js"
   ]
 }
