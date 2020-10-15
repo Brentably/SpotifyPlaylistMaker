@@ -5,8 +5,9 @@ const Header = (props) => {
     const {userData} = props
     
 
+
     return (
-        <div className="mb-2 text-center text-lg sm:text-xl md:text-2xl font-fredoka p-2 flex justify-between tracking-wide text-white">
+        <div className="mb-2 text-center text-lg sm:text-xl md:text-2xl font-fredoka pt-2 pl-2 pr-2 pb-0 flex justify-between tracking-wide text-white cursor-default">
                 <span className="flex justify-center self-center">
                 {/* <img src={require("../icons/runnerman.svg")} alt="running / music logo" className="inline mr-1 self-center" style={{verticalAlign: 'middle', height: "1.2em"}}/> */}
                 BPM Playlist Maker

@@ -87,8 +87,19 @@
   border-radius: 0.3rem;
 }
 
-.text-silver {
+.text-silver, .searchSVG {
   color: #808a9f;
+}
+
+.searchSVG {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0.5em;
+  right: 0.5em;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 }
 
 .font-nunito {

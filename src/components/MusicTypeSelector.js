@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom"
 
 const NLink = styled(NavLink)`
   margin-right: 1em;
+  transition: color 0.1s ease-out;
   &:active,
   :hover {
     color: #808a9f;
     text-decoration: none;
-    cursor: default;
+    cursor: pointer;
+    transition: color 0.1s ease-out;
   }
 `
 
