@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import fetchGet from '../helpers/fetchGet'
 
 
-const SearchResults = (props) => {
- const {token, query} = props
+const SearchResults = ({token, query}) => {
 
  useEffect(() => {
+  const formattedQuery = query.toLowerCase().split().join('+')
   (async () => {
    const response = await fetchGet("url", token)
 

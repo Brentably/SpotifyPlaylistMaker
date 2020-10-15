@@ -22,7 +22,7 @@ const Playlists = (props) => {
     //  returns there are no more playlists to load
     if (!nextPlaylistUrl) return
 
-    const response = await fetchGet(nextPlaylistUrl)
+    const response = await fetchGet(nextPlaylistUrl, token)
     if (response.ok) {
       const body = await response.json()
       // puts playlists in state, which triggers a re-render
