@@ -88,6 +88,7 @@ const Home = (props) => {
             </Route>
           </Switch>
         </Router>
+
         </>)
     } else if (authFailed) {
       return <Login />

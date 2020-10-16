@@ -6,7 +6,7 @@ import fetchGet from '../helpers/fetchGet'
 const SearchResults = ({token, query}) => {
 
  useEffect(() => {
-  const formattedQuery = query.toLowerCase().split().join('+')
+  // const formattedQuery = query.length > 0 ? query.toLowerCase().split().join('+') : ""
   (async () => {
    const response = await fetchGet("url", token)
 
