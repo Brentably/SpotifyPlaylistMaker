@@ -45,7 +45,7 @@ const Playlists = (props) => {
   return playlists.length > 0 ? (
     // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api.
     // there's got to be a better way to do this though...
-    <>
+    
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
@@ -55,27 +55,23 @@ const Playlists = (props) => {
           <Loading key="Loading"/>
         }
       >
-        {playlists.map((playlist) => (
+        {playlists.map((playlist) => {
+          console.log(playlist)
+          return(
           <Card
+            endpoint={playlist.href}
             key={playlist.id}
-            type="playlist"
+            // id={playlist.id}
+            type={playlist.type}
             imgSrc={playlist.images[0] ? playlist.images[0].url : "default"}
             name={playlist.name}
             owner={`by ${playlist.owner.display_name}`}
-          />
-        ))}
+          />)
+      })}
       </InfiniteScroll>
-    </>
-  ) : (
-    <Loading />
-  )
+    
+  ) : <Loading />
+  
 }
 
 export default connect((store) => ({ token: store.token }), {})(Playlists)
-
-// function mapStateToProps(globalState) {
-//   // return an object where the keys are the name of the prop your component wants,
-//   // values are the actual parts of the global state your component wants
-// }
-
-// export default connect(/* What parts of state do you want? */, /* What actions to dispatch? */)(App)

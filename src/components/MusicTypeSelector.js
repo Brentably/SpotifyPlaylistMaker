@@ -14,7 +14,7 @@ const NLink = styled(NavLink)`
   }
 `
 
-// This was a lengthy ass process of styling the links properly, but in the future, I think I will just set an onclick function to route to where I want to go, otherwise just use styled components, b/c overriding the default anchor style is a pain
+// This was a lengthy ass process of styling the links properly
 const MusicTypeSelector = () => {
     const stickyHeader = useRef(null)
     const [stick, setStick] = useState(false)
