@@ -9,7 +9,8 @@ const SearchResults = ({token, query}) => {
   // const formattedQuery = query.length > 0 ? query.toLowerCase().split().join('+') : ""
   (async () => {
    const response = await fetchGet("url", token)
-
+   const body = await response.json()
+   console.log(body)
 
   })()
  }, [query, token])

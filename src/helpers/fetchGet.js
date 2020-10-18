@@ -1,5 +1,3 @@
-import React from 'react'
-import Login from '../components/Login'
 
 const fetchGet = async (fetchURL, token) => {
         let response = await fetch(fetchURL, {

@@ -4,7 +4,7 @@ import Loading from '../Loading'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux'
-import defaultIcon from "../icons/defaultIcon.svg"
+import defaultIcon from "../../icons/defaultIcon.svg"
 
 const Albums = (props) => {
   const { token } = props

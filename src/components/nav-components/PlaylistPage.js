@@ -17,7 +17,7 @@ useEffect(() => {
   const body = await response.json()
   setData(body)
 })()
-}, [])
+}, [endpoint, token])
 
 
  return (

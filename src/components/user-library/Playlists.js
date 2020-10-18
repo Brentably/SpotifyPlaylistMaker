@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import Card from '../Card'
 import Loading from '../Loading'
-import defaultIcon from "../icons/defaultIcon.svg"
+import defaultIcon from "../../icons/defaultIcon.svg"
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux'
