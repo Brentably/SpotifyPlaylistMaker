@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import Card from '../Card'
 import Loading from '../Loading'
+import defaultIcon from "../icons/defaultIcon.svg"
 import fetchGet from '../../helpers/fetchGet'
-import LikedSongs from './LikedSongs'
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux'
 
@@ -55,13 +55,14 @@ const Playlists = (props) => {
 
       {playlists.map((playlist) => {
         // console.log(playlist)
+        let source = playlist.images[0] ? playlist.images[0].url : defaultIcon
         return (
           <Card
             endpoint={playlist.href}
             key={playlist.id}
             // id={playlist.id}
             path={playlist.type}
-            imgSrc={playlist.images[0] ? playlist.images[0].url : 'default'}
+            img={source}
             header={playlist.name}
             subheader={`by ${playlist.owner.display_name}`}
           />

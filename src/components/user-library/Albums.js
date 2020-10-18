@@ -4,6 +4,7 @@ import Loading from '../Loading'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux'
+import defaultIcon from "../icons/defaultIcon.svg"
 
 const Albums = (props) => {
   const { token } = props
@@ -48,6 +49,7 @@ const Albums = (props) => {
       loader={<Loading key='239rehoufwds' />}>
       {albums.map((album) => {
         let owner = [...album.artists.map((artist) => artist.name)].join(', ')
+        let source = album.images[0] ? album.images[0].url : defaultIcon
         return (
           <Card
             key={album.id}
@@ -56,7 +58,7 @@ const Albums = (props) => {
             path={album.type}
             header={album.name}
             subheader={owner}
-            imgSrc={album.images[0] ? album.images[0].url : 'default'}
+            img={source}
           />
         )
       })}
