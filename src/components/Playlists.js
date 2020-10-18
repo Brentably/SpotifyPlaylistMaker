@@ -56,7 +56,7 @@ const Playlists = (props) => {
         }
       >
         {playlists.map((playlist) => {
-          console.log(playlist)
+          // console.log(playlist)
           return(
           <Card
             endpoint={playlist.href}
