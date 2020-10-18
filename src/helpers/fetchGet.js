@@ -9,8 +9,8 @@ const fetchGet = async (fetchURL, token) => {
             'Authorization': `Bearer ${token}`
           }})
           if(response.ok && response.status === "200") return await response.json()
-          // if authorization token is old, attempts to help the user login again, if this breaks, try a redirect?
-          else if(response.status === "401") return <Login />
+          // if authorization token is old, attempts to help the user login again. rendering a login didn't work so I'm trying this
+          else if(response.status === "401") document.location.reload()
           else return await response
 }
 

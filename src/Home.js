@@ -4,8 +4,8 @@ import Header from './components/Header';
 import Login from './components/Login';
 import Loading from './components/Loading';
 import MusicTypeSelector from './components/MusicTypeSelector';
-import Playlists from './components/Playlists'
-import Albums from './components/Albums'
+import Playlists from './components/user-library/Playlists'
+import Albums from './components/user-library/Albums'
 import Search from './components/Search'
 import PlaylistPage from './components/nav-components/PlaylistPage'
 import ArtistPage from './components/nav-components/ArtistPage'
@@ -18,6 +18,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import LikedSongs from './components/user-library/LikedSongs';
 
 
 
@@ -82,6 +83,9 @@ const Home = (props) => {
           <Switch>
             <Route path="/playlists">
               <Playlists />
+            </Route>
+            <Route path="/likedsongs">
+              <LikedSongs />
             </Route>
             <Route path="/albums">
               <Albums />
