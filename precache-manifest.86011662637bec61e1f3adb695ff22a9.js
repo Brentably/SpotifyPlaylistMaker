@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8c00dd6c35e31cbe76f0bedda46a6f83",
+    "revision": "15a2efdfd06655f3c1a16b9168c83844",
     "url": "/SpotifyPlaylistMaker/index.html"
   },
   {
-    "revision": "e3546e4ad19f9a1966fc",
+    "revision": "a8ee97cb2bc373f96324",
     "url": "/SpotifyPlaylistMaker/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "52639dea04a56ebf6868",
-    "url": "/SpotifyPlaylistMaker/static/css/main.c4f8d587.chunk.css"
+    "revision": "f60cb21925e8fddd1da4",
+    "url": "/SpotifyPlaylistMaker/static/css/main.a3d2d010.chunk.css"
   },
   {
-    "revision": "e3546e4ad19f9a1966fc",
-    "url": "/SpotifyPlaylistMaker/static/js/2.8c1f42fa.chunk.js"
+    "revision": "a8ee97cb2bc373f96324",
+    "url": "/SpotifyPlaylistMaker/static/js/2.e009ff4c.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/SpotifyPlaylistMaker/static/js/2.8c1f42fa.chunk.js.LICENSE.txt"
+    "url": "/SpotifyPlaylistMaker/static/js/2.e009ff4c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "52639dea04a56ebf6868",
-    "url": "/SpotifyPlaylistMaker/static/js/main.29b5de5a.chunk.js"
+    "revision": "f60cb21925e8fddd1da4",
+    "url": "/SpotifyPlaylistMaker/static/js/main.3fd0fce6.chunk.js"
   },
   {
     "revision": "2a2f728cdd39f1c14597",
@@ -80,11 +80,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SpotifyPlaylistMaker/static/media/Nunito-SemiBoldItalic.cc0b18c6.ttf"
   },
   {
+    "revision": "652f42e03bc478345fb05e54aeed80ea",
+    "url": "/SpotifyPlaylistMaker/static/media/backArrow.652f42e0.svg"
+  },
+  {
     "revision": "cd9692ebdd9d6b1b46949a16440707ac",
     "url": "/SpotifyPlaylistMaker/static/media/defaultIcon.cd9692eb.svg"
   },
   {
-    "revision": "a4ad602a9bd73f8e505021270c39be74",
-    "url": "/SpotifyPlaylistMaker/static/media/search.a4ad602a.svg"
+    "revision": "b987fc5a62463e1b88b125eeb5a3807f",
+    "url": "/SpotifyPlaylistMaker/static/media/delete-cross.b987fc5a.svg"
   }
 ]);
