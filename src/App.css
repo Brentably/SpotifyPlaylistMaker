@@ -102,6 +102,13 @@
   pointer-events: none;
 }
 
+.likedSongsImage {
+  background: linear-gradient(135deg,#450af5,#c4efd9);
+  background-origin: content-box;
+  background-repeat: no-repeat;
+}
+
+
 .font-nunito {
   font-family: "Nunito", sans-serif;
 }

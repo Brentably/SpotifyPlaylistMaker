@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import Card from '../Card'
 import Loading from '../Loading'
-import defaultIcon from "../../icons/defaultIcon.svg"
+import defaultIcon from '../../icons/defaultIcon.svg'
+import LikedSongsCard from './LikedSongsCard'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux'
@@ -44,6 +45,7 @@ const Playlists = (props) => {
   return playlists.length > 0 ? (
     // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api.
     // there's got to be a better way to do this though...
+    <>
 
     <InfiniteScroll
       pageStart={0}
@@ -51,7 +53,10 @@ const Playlists = (props) => {
       // the api returns NULL if you've loaded all the playlists, which will set the hasMore boolean to false, and stop infinite scroll from trying to load any more
       hasMore={Boolean(nextPlaylistUrl)}
       loader={<Loading key='Loading' />}>
-      <Card endpoint="https://api.spotify.com/v1/me/tracks" key="likedsongs" type="likedsongs"/>
+
+
+    <LikedSongsCard />
+      {/* <LikedSongsCard /> */}
 
       {playlists.map((playlist) => {
         // console.log(playlist)
@@ -69,6 +74,7 @@ const Playlists = (props) => {
         )
       })}
     </InfiniteScroll>
+    </>
   ) : (
     <Loading />
   )

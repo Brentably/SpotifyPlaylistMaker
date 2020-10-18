@@ -5,6 +5,7 @@ import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
 import { connect } from 'react-redux'
 import defaultIcon from "../../icons/defaultIcon.svg"
+import LikedSongsCard from './LikedSongsCard'
 
 const Albums = (props) => {
   const { token } = props
@@ -47,6 +48,9 @@ const Albums = (props) => {
       // the api returns NULL if you've loaded all the playlists, which will set the hasMore boolean to false, and stop infinite scroll from trying to load any more
       hasMore={Boolean(nextAlbumUrl)}
       loader={<Loading key='239rehoufwds' />}>
+
+        <LikedSongsCard />
+
       {albums.map((album) => {
         let owner = [...album.artists.map((artist) => artist.name)].join(', ')
         let source = album.images[0] ? album.images[0].url : defaultIcon
