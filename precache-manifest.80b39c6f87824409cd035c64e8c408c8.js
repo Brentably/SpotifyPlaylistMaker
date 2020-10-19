@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "15a2efdfd06655f3c1a16b9168c83844",
+    "revision": "08236f127cc488decb14c185d25287ee",
     "url": "/SpotifyPlaylistMaker/index.html"
   },
   {
-    "revision": "a8ee97cb2bc373f96324",
+    "revision": "cd578eb0353a1fa22a45",
     "url": "/SpotifyPlaylistMaker/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "f60cb21925e8fddd1da4",
-    "url": "/SpotifyPlaylistMaker/static/css/main.a3d2d010.chunk.css"
+    "revision": "8f41da37d74c28187689",
+    "url": "/SpotifyPlaylistMaker/static/css/main.be4a9cfc.chunk.css"
   },
   {
-    "revision": "a8ee97cb2bc373f96324",
-    "url": "/SpotifyPlaylistMaker/static/js/2.e009ff4c.chunk.js"
+    "revision": "cd578eb0353a1fa22a45",
+    "url": "/SpotifyPlaylistMaker/static/js/2.fb3bbad9.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/SpotifyPlaylistMaker/static/js/2.e009ff4c.chunk.js.LICENSE.txt"
+    "url": "/SpotifyPlaylistMaker/static/js/2.fb3bbad9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f60cb21925e8fddd1da4",
-    "url": "/SpotifyPlaylistMaker/static/js/main.3fd0fce6.chunk.js"
+    "revision": "8f41da37d74c28187689",
+    "url": "/SpotifyPlaylistMaker/static/js/main.79980b46.chunk.js"
   },
   {
     "revision": "2a2f728cdd39f1c14597",
@@ -80,8 +80,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SpotifyPlaylistMaker/static/media/Nunito-SemiBoldItalic.cc0b18c6.ttf"
   },
   {
-    "revision": "652f42e03bc478345fb05e54aeed80ea",
-    "url": "/SpotifyPlaylistMaker/static/media/backArrow.652f42e0.svg"
+    "revision": "5f26c12e2aad9c46a3ef0c09fdb59422",
+    "url": "/SpotifyPlaylistMaker/static/media/backArrow.5f26c12e.svg"
+  },
+  {
+    "revision": "64b5023819d0dc50d94d8580cd389781",
+    "url": "/SpotifyPlaylistMaker/static/media/backArrowActive.64b50238.svg"
   },
   {
     "revision": "cd9692ebdd9d6b1b46949a16440707ac",
@@ -90,5 +94,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "b987fc5a62463e1b88b125eeb5a3807f",
     "url": "/SpotifyPlaylistMaker/static/media/delete-cross.b987fc5a.svg"
+  },
+  {
+    "revision": "b3d0b9578aa13b4d7f0e6b94d24d51f1",
+    "url": "/SpotifyPlaylistMaker/static/media/heart-white.b3d0b957.svg"
   }
 ]);
