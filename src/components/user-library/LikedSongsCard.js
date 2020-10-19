@@ -1,5 +1,5 @@
 import React from 'react'
-import likedSongsIcon from '../../icons/likedSongs.svg'
+import likedSongsIcon from '../../icons/heart-white.svg'
 import { useHistory } from 'react-router-dom'
 
 const LikedSongsCard = () => {
@@ -19,8 +19,8 @@ const LikedSongsCard = () => {
       style={{ margin: '0.6rem' }}
       onClick={handleClick}>
       {/* allows whatever component that is rendering the card to just put default as a prop if there is no image there */}
-      <div className='likedSongsImage'>
-        <img src={likedSongsIcon} alt='liked songs heart' />
+      <div className='likedSongsImage mr-2 flex justify-center items-center' style={{objectFit: "cover", height: "3.4em", width: "3.4em"}}>
+        <img src={likedSongsIcon} alt='liked songs heart' style={{width: "1.6em", height: "1.6em"}}/>
       </div>
       <div className='ellipsis'>
         <div className='text-md ellipsis'>Liked Songs</div>
