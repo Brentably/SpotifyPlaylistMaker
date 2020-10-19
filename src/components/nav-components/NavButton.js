@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import backArrow from '../../icons/backArrow.svg'
+import backArrowActive from '../../icons/backArrowActive.svg'
 
 const Button = styled.button`
   position: absolute;
@@ -15,7 +16,9 @@ const Button = styled.button`
   background-size: cover;
   background-repeat: no-repeat;
   background-origin: content-box;
-
+  &:active {
+    background-image: url(${backArrowActive})
+  }
 
 `
 
@@ -23,7 +26,7 @@ const Button = styled.button`
 
 const NavButtons = ({history}) => {
   function handleClick() {
-    console.log('BLEEP BLOOOP')
+    console.log('BLEEP BLOOOP TIIIME WARRRP')
     history.goBack()
   }
 
