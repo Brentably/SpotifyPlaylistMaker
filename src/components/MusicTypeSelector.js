@@ -23,6 +23,8 @@ const MusicTypeSelector = () => {
     breakpointRef.current = breakpoint
 
 
+    // the whole breakpoint ref hoop-dee doop-dee stuff is so that handleScroll has access to the breakpoint value, which is only determined after the first render
+    // I think there must be a better way to do this
     function handleScroll() {
         // console.log(this.scrollY)
         // console.log(breakpointRef.current)
