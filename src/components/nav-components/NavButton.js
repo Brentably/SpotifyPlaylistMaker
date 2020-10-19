@@ -9,8 +9,8 @@ const Button = styled.button`
   left: 0.25em;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
-  width: 2.2em;
-  height: 2.2em;
+  width: 1.5em;
+  height: 1.5em;
   padding: 0.2em;
   background-image: url(${backArrow});
   background-size: cover;

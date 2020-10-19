@@ -39,8 +39,6 @@ const Albums = (props) => {
 
   // if state has been updated
   return albums.length > 0 ? (
-    // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api.
-    // there's got to be a better way to do this though...
 
     <InfiniteScroll
       pageStart={0}

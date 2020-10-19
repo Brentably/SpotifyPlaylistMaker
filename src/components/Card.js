@@ -8,12 +8,13 @@ import {useHistory} from "react-router-dom"
 // imgClass is if you want to style your image, if you're using svg or something like that
 
 const Card = (props) => {
-    const {path, header, subheader, img, endpoint} = props
+    const {path, header, subheader, img, endpoint = null} = props
     let history = useHistory()
     
 
     // when you click on a playlist / album / etc, this routes you to a generic playlist / album / etc, page with state holding the endpoint for that page, so you can dynamically render it
     function handleClick() {
+        if(!endpoint) return
         history.push(`/${path}`, {endpoint: endpoint})
     }
     

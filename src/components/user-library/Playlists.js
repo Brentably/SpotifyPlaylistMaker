@@ -46,34 +46,31 @@ const Playlists = (props) => {
     // if the undisplay prop is set to true, this div hides all the playlists, that way it doesn't have to call the api.
     // there's got to be a better way to do this though...
     <>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={handleLoadMore}
+        // the api returns NULL if you've loaded all the playlists, which will set the hasMore boolean to false, and stop infinite scroll from trying to load any more
+        hasMore={Boolean(nextPlaylistUrl)}
+        loader={<Loading key='Loading' />}>
+        <LikedSongsCard />
+        {/* <LikedSongsCard /> */}
 
-    <InfiniteScroll
-      pageStart={0}
-      loadMore={handleLoadMore}
-      // the api returns NULL if you've loaded all the playlists, which will set the hasMore boolean to false, and stop infinite scroll from trying to load any more
-      hasMore={Boolean(nextPlaylistUrl)}
-      loader={<Loading key='Loading' />}>
-
-
-    <LikedSongsCard />
-      {/* <LikedSongsCard /> */}
-
-      {playlists.map((playlist) => {
-        // console.log(playlist)
-        let source = playlist.images[0] ? playlist.images[0].url : defaultIcon;
-        return (
-          <Card
-            endpoint={playlist.href}
-            key={playlist.id}
-            // id={playlist.id}
-            path={playlist.type}
-            img={source}
-            header={playlist.name}
-            subheader={`by ${playlist.owner.display_name}`}
-          />
-        )
-      })}
-    </InfiniteScroll>
+        {playlists.map((playlist) => {
+          // console.log(playlist)
+          let source = playlist.images[0] ? playlist.images[0].url : defaultIcon
+          return (
+            <Card
+              endpoint={playlist.href}
+              key={playlist.id}
+              // id={playlist.id}
+              path={playlist.type}
+              img={source}
+              header={playlist.name}
+              subheader={`by ${playlist.owner.display_name}`}
+            />
+          )
+        })}
+      </InfiniteScroll>
     </>
   ) : (
     <Loading />

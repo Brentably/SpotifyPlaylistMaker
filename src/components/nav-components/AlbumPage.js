@@ -16,8 +16,9 @@ useEffect(() => {
   const response = await fetchGet(`${endpoint}`, token)
   const body = await response.json()
   setData(body)
+  console.log(data)
 })()
-}, [])
+}, [data, endpoint, token])
 
 
  return (
