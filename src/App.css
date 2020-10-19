@@ -146,7 +146,7 @@
 
 #card:hover, #card:focus {
   background-color: rgb(51, 51, 51);
-  cursor: default;
+  cursor: pointer;
 }
 
 .page {

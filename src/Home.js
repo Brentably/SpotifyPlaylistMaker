@@ -13,10 +13,10 @@ import AlbumPage from './components/nav-components/AlbumPage'
 import './App.css'
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 import LikedSongsPage from './components/user-library/LikedSongsPage'
-import {GlobalContext} from "./hooks/GlobalContext"
+import { GlobalContext } from './hooks/GlobalContext'
 
 const Home = () => {
-  const {setContext} = useContext(GlobalContext)
+  const { setContext } = useContext(GlobalContext)
 
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
@@ -30,12 +30,12 @@ const Home = () => {
       setToken(hash.access_token)
       localStorage.clear()
       localStorage.setItem('token', hash.access_token)
-      setContext((prevContext) => ({...prevContext, token: hash.access_token}))
+      setContext((prevContext) => ({ ...prevContext, token: hash.access_token }))
       console.log(hash.access_token)
     } else {
       setToken(localStorage.getItem('token'))
       let a = localStorage.getItem('token')
-      setContext((prevContext) => ({...prevContext, token: a}))
+      setContext((prevContext) => ({ ...prevContext, token: a }))
     }
   }, [setContext]) /* setContext will never change, it's just a required dependency*/
 
@@ -69,7 +69,6 @@ const Home = () => {
   if (userData) {
     return (
       <>
-        <Header userData={userData} />
         <Router
           initialEntries={[
             '/playlists',
@@ -80,19 +79,22 @@ const Home = () => {
           initialIndex={3}>
           <Switch>
             <Route path='/playlists'>
+              <Header userData={userData} />
               <MusicTypeSelector />
               <Playlists />
             </Route>
-            <Route path='/likedsongs'>
-              <LikedSongsPage />
-            </Route>
             <Route path='/albums'>
+              <Header userData={userData} />
               <MusicTypeSelector />
               <Albums />
             </Route>
             <Route path='/search'>
+              <Header userData={userData} />
               <MusicTypeSelector />
               <Search />
+            </Route>
+            <Route path='/likedsongs'>
+              <LikedSongsPage />
             </Route>
             <Route path='/playlist'>
               <PlaylistPage />

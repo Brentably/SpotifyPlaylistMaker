@@ -17,18 +17,22 @@ const PlaylistTop = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   font-size: 1.5rem;
 `
 const PlaylistBottom = styled.div`
-  position: absolute;
+  /* position: absolute;
   top: 13em;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
   z-index: 1000;
   /* background: rgb(0,0,0); */
   /* background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0) 100%); */
+`
+
+const Header = styled.div`
+  width: 100%;
 `
 
 const PlaylistPage = () => {
@@ -67,17 +71,22 @@ const PlaylistPage = () => {
   }
 
   return data && tracks ? (
-    <div className='page absolute bottom-0 left-0 right-0 top-0 text-white'>
+    <div className='text-white'>
       <PlaylistTop backgroundColor={data.primary_color ? `${data.primary_color}` : '#535353'}>
-        <div>{data.name}</div>
+        <Header>
+          <div className='m-2 text-center'>{data.name}</div>
+          <NavButton history={history} className="top-0 left-0 m-2 fixed"/>
+        </Header>
         <img
           src={data.images[0] ? data.images[0].url : defaultImage}
           alt='playlist'
           style={{ height: '7em', width: '7em' }}
           className='self-center'
         />
-        <div>{data.owner.display_name}</div>
-        <div className='text-silver text-sm'>{data.description ? decodeHTML(data.description) : ''}</div>
+        <div id='ownerAndDescription' className='self-start p-3'>
+          <div className='text-base'>by {data.owner.display_name}</div>
+          <div className='text-silver text-sm'>{data.description ? decodeHTML(data.description) : ''}</div>
+        </div>
       </PlaylistTop>
       <PlaylistBottom>
         <InfiniteScroll
@@ -94,7 +103,6 @@ const PlaylistPage = () => {
           })}
         </InfiniteScroll>
       </PlaylistBottom>
-      <NavButton history={history} />
     </div>
   ) : (
     <Loading />
