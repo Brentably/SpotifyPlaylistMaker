@@ -18,17 +18,15 @@ const NLink = styled(NavLink)`
 const MusicTypeSelector = () => {
     const musicTypeHeader = useRef(null)
     const [stick, setStick] = useState(false)
-    const [breakpoint, setBreakpoint] = useState(null)
-    const breakpointRef = useRef()
-    breakpointRef.current = breakpoint
+    const breakpoint = useRef()
 
 
-    // the whole breakpoint ref hoop-dee doop-dee stuff is so that handleScroll has access to the breakpoint value, which is only determined after the first render
-    // I think there must be a better way to do this
+
+    // the breakpoint ref is so that handleScroll has access to the breakpoint value, which is only determined after the first render
     function handleScroll() {
         // console.log(this.scrollY)
-        // console.log(breakpointRef.current)
-        if(this.scrollY > breakpointRef.current) {
+        // console.log(breakpoint.current)
+        if(this.scrollY > breakpoint.current) {
           setStick(true)
         } else {
           setStick(false)
@@ -40,7 +38,7 @@ const MusicTypeSelector = () => {
         window.addEventListener('scroll', handleScroll)
         // On initial render, useEffect grabs the distance the playlistHeader is from the top, then sets the scroll breakpoint to that value, which is saved and remembered for future comparison of where to stop/start being sticky
         // the only problem here is that if someone opens the window, scrolls down, resizes the window and scrolls up, it'll look a little funny, but that's a edge / corner case, and I'm not too worried about that now. I may be able to fix that if I take a different approach with my if/else statement in the handleScroll, but then my handleScroll would have to know the stick value
-        setBreakpoint(musicTypeHeader.current.offsetTop)
+        breakpoint.current = musicTypeHeader.current.offsetTop
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
   return (
