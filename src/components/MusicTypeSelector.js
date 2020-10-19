@@ -16,17 +16,17 @@ const NLink = styled(NavLink)`
 
 // This was a lengthy ass process of styling the links properly
 const MusicTypeSelector = () => {
-    const stickyHeader = useRef(null)
+    const playlistHeader = useRef(null)
     const [stick, setStick] = useState(false)
-    const [scrollVal, setScrollVal] = useState(null)
-    const scrollValRef = useRef()
-    scrollValRef.current = scrollVal
+    const [breakpoint, setBreakpoint] = useState(null)
+    const breakpointRef = useRef()
+    breakpointRef.current = breakpoint
 
 
     function handleScroll() {
         // console.log(this.scrollY)
-        // console.log(scrollValRef.current)
-        if(this.scrollY > scrollValRef.current) {
+        // console.log(breakpointRef.current)
+        if(this.scrollY > breakpointRef.current) {
           setStick(true)
         } else {
           setStick(false)
@@ -36,15 +36,15 @@ const MusicTypeSelector = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
-        // On initial render, useEffect grabs the distance the stickyHeader is from the top, then sets the scrollValue to that value, which is saved and remembered, so once the stickyHeader's position is set to fixed, it doesn't override and say that the  sticky header has no distance from the top
+        // On initial render, useEffect grabs the distance the playlistHeader is from the top, then sets the scroll breakpoint to that value, which is saved and remembered for future comparison of where to stop/start being sticky
         // the only problem here is that if someone opens the window, scrolls down, resizes the window and scrolls up, it'll look a little funny, but that's a edge / corner case, and I'm not too worried about that now. I may be able to fix that if I take a different approach with my if/else statement in the handleScroll, but then my handleScroll would have to know the stick value
-        setScrollVal(stickyHeader.current.offsetTop)
+        setBreakpoint(playlistHeader.current.offsetTop)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
   return (
       <>
-    {stick? <div style={{width: "100vw", height: `${stickyHeader.current.clientHeight}px`}}></div> : null}
-    <div className={stick ? "stick text-silver flex text-xl tracking-wide p-2 font-nunito-semibold" : "w-full text-silver flex tracking-wide text-xl p-2 font-nunito-semibold"} ref={stickyHeader}>
+    {stick? <div style={{width: "100vw", height: `${playlistHeader.current.clientHeight}px`}}></div> : null}
+    <div className={stick ? "stick text-silver flex text-xl tracking-wide p-2 font-nunito-semibold" : "w-full text-silver flex tracking-wide text-xl p-2 font-nunito-semibold"} ref={playlistHeader}>
       <NLink to="/playlists" className="text-silver" activeClassName="selected">
         Playlists
       </NLink>

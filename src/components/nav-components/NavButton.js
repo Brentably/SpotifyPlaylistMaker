@@ -5,13 +5,13 @@ import backArrowActive from '../../icons/backArrowActive.svg'
 
 const Button = styled.button`
   position: absolute;
-  top: 0.25em;
-  left: 0.25em;
+  top: 0.25rem;
+  left: 0.25rem;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
-  width: 1.5em;
-  height: 1.5em;
-  padding: 0.2em;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.2rem;
   background-image: url(${backArrow});
   background-size: cover;
   background-repeat: no-repeat;

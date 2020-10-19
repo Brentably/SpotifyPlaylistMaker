@@ -19,7 +19,6 @@ const PlaylistTop = styled.div`
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
-
 `
 const PlaylistBottom = styled.div`
   position: absolute;
@@ -34,7 +33,9 @@ const PlaylistBottom = styled.div`
 
 const PlaylistPage = () => {
   // history.location.state when calling history.push(to: '', state: {}) fill the state param with the endpoint to hydrate the page properly
-  const {context: {token}} = useContext(GlobalContext)
+  const {
+    context: { token },
+  } = useContext(GlobalContext)
   const history = useHistory()
   const { endpoint } = history.location.state
   const [data, setData] = useState(null)
@@ -68,10 +69,7 @@ const PlaylistPage = () => {
   return data && tracks ? (
     <div className='page absolute bottom-0 left-0 right-0 top-0 text-white'>
       <PlaylistTop backgroundColor={data.primary_color ? `${data.primary_color}` : '#535353'}>
-        <div className='playlistHeader sticky w-full'>
-          {data.name}
-          <NavButton history={history} />
-        </div>
+        <div>{data.name}</div>
         <img
           src={data.images[0] ? data.images[0].url : defaultImage}
           alt='playlist'
@@ -79,7 +77,7 @@ const PlaylistPage = () => {
           className='self-center'
         />
         <div>{data.owner.display_name}</div>
-        <div className='text-silver'>{data.description ? decodeHTML(data.description) : ''}</div>
+        <div className='text-silver text-sm'>{data.description ? decodeHTML(data.description) : ''}</div>
       </PlaylistTop>
       <PlaylistBottom>
         <InfiniteScroll
@@ -96,6 +94,7 @@ const PlaylistPage = () => {
           })}
         </InfiniteScroll>
       </PlaylistBottom>
+      <NavButton history={history} />
     </div>
   ) : (
     <Loading />
