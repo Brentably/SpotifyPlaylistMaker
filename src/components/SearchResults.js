@@ -1,10 +1,10 @@
-import React, {useEffect, } from 'react'
-import {connect} from 'react-redux'
+import React, {useEffect, useContext} from 'react'
 import fetchGet from '../helpers/fetchGet'
+import {GlobalContext} from '../hooks/GlobalContext'
 
 
-const SearchResults = ({token, query}) => {
-
+const SearchResults = ({query}) => {
+  const {context: {token}} = useContext(GlobalContext)
  useEffect(() => {
   // const formattedQuery = query.length > 0 ? query.toLowerCase().split().join('+') : ""
   (async () => {
@@ -22,4 +22,4 @@ const SearchResults = ({token, query}) => {
  )
 }
 
-export default connect((store => ({token: store.token})), {})(SearchResults)
+export default SearchResults

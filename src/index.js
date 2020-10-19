@@ -5,16 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import './index.css';
 import App from './App';
-import {Provider} from "react-redux"
-import store from "./redux"
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router> */}
-      <Provider store={store}>
         <App />
-      </Provider>
-    {/* </Router> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
