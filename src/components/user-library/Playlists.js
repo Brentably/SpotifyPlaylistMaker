@@ -60,7 +60,7 @@ const Playlists = (props) => {
 
       {playlists.map((playlist) => {
         // console.log(playlist)
-        let source = playlist.images[0] ? playlist.images[0].url : defaultIcon
+        let source = playlist.images[0] ? playlist.images[0].url : defaultIcon;
         return (
           <Card
             endpoint={playlist.href}

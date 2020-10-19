@@ -20,7 +20,7 @@ const Card = (props) => {
     return (
         <div id="card" className="text-white flex font-nunito-semibold ellipsis items-center ml-2" style={{margin: "0.6rem"}} onClick={handleClick}>
             {/* allows whatever component that is rendering the card to just put default as a prop if there is no image there */}
-            <img src={img} alt={path} className={'mr-2'} style={{objectFit: "cover", height: "3.4em", width: "3.4em"}} />
+            <img src={img} alt={path} className={'mr-2'} style={{objectFit: "cover", height: "3.4em", width: "3.4em"}} loading="lazy" />
             <div className="ellipsis">
             <div className="text-md ellipsis">{header}</div>
             <div className="text-sm text-silver">{subheader}</div>

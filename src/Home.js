@@ -18,7 +18,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import LikedSongs from './components/user-library/LikedSongs';
+import LikedSongsPage from './components/user-library/LikedSongsPage';
 
 
 
@@ -76,8 +76,8 @@ const Home = (props) => {
       return (<>
         <Header userData={userData}/>
         <Router 
-          initialEntries={["/playlists", "/albums", "/search"]}
-          initialIndex={0}
+          initialEntries={["/playlists", "/albums", "/search", { pathname: "/playlist", state: {endpoint: "https://api.spotify.com/v1/playlists/37i9dQZF1DX4osfY3zybD2"}}]}
+          initialIndex={3}
           >
           <MusicTypeSelector/>
           <Switch>
@@ -85,7 +85,7 @@ const Home = (props) => {
               <Playlists />
             </Route>
             <Route path="/likedsongs">
-              <LikedSongs />
+              <LikedSongsPage />
             </Route>
             <Route path="/albums">
               <Albums />
