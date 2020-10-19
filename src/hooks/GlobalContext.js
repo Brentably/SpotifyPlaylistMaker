@@ -1,19 +1,19 @@
-// global context is INERT now that I've implemented redux
-// import React, {useState} from 'react'
 
-// const GlobalContext = React.createContext()
+import React, {useState} from 'react'
 
-// const GlobalContextProvider = (props) => {
+const GlobalContext = React.createContext()
 
-//     const [context, setContext] = useState({})
+const GlobalContextProvider = (props) => {
 
-//     return (
-//         <GlobalContext.Provider value={{context, setContext}}>
-//             {props.children}
-//         </GlobalContext.Provider>
-//     )
-// }
+    const [context, setContext] = useState({})
+
+    return (
+        <GlobalContext.Provider value={{context, setContext}}>
+            {props.children}
+        </GlobalContext.Provider>
+    )
+}
 
 
-// export {GlobalContextProvider, GlobalContext}
+export {GlobalContextProvider, GlobalContext}
 

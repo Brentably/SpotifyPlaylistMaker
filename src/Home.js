@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import hash from './auth/hash'
 import Header from './components/Header'
 import Login from './components/Login'
@@ -10,14 +10,14 @@ import Search from './components/Search'
 import PlaylistPage from './components/nav-components/PlaylistPage'
 import ArtistPage from './components/nav-components/ArtistPage'
 import AlbumPage from './components/nav-components/AlbumPage'
-import { connect } from 'react-redux'
-import { addToken } from './redux'
 import './App.css'
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 import LikedSongsPage from './components/user-library/LikedSongsPage'
+import {GlobalContext} from "./hooks/GlobalContext"
 
-const Home = (props) => {
-  const { addToken } = props
+const Home = () => {
+  const {setContext} = useContext(GlobalContext)
+
   hash.error && console.log(hash.error)
   const [token, setToken] = useState(null)
   const [userData, setUserData] = useState(null)
@@ -30,13 +30,14 @@ const Home = (props) => {
       setToken(hash.access_token)
       localStorage.clear()
       localStorage.setItem('token', hash.access_token)
-      addToken(hash.access_token)
+      setContext((prevContext) => ({...prevContext, token: hash.access_token}))
       console.log(hash.access_token)
     } else {
       setToken(localStorage.getItem('token'))
-      addToken(localStorage.getItem('token'))
+      let a = localStorage.getItem('token')
+      setContext((prevContext) => ({...prevContext, token: a}))
     }
-  }, [addToken]) /* addToken will never change, it's just a required dependency*/
+  }, [setContext]) /* setContext will never change, it's just a required dependency*/
 
   // calls the api, helps make sure everything is working
   useEffect(() => {
@@ -113,5 +114,4 @@ const Home = (props) => {
   }
 }
 
-// redux: this component isn't pulling anything from redux, but IS pushing the token to redux store
-export default connect(null, { addToken })(Home)
+export default Home

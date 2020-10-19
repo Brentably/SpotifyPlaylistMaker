@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useContext } from 'react'
 import Card from '../Card'
 import Loading from '../Loading'
 import defaultIcon from '../../icons/defaultIcon.svg'
 import LikedSongsCard from './LikedSongsCard'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
-import { connect } from 'react-redux'
+import { GlobalContext } from '../../hooks/GlobalContext'
 
-const Playlists = (props) => {
-  const { token } = props
+const Playlists = () => {
+  const {context: {token}} = useContext(GlobalContext)
   const [playlists, setPlaylists] = useState([])
   const [nextPlaylistUrl, setNextPlaylistUrl] = useState('https://api.spotify.com/v1/me/playlists?offset=0&limit=40')
 
@@ -77,4 +77,4 @@ const Playlists = (props) => {
   )
 }
 
-export default connect((store) => ({ token: store.token }), {})(Playlists)
+export default Playlists

@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useContext } from 'react'
 import Card from '../Card'
 import Loading from '../Loading'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
-import { connect } from 'react-redux'
 import defaultIcon from "../../icons/defaultIcon.svg"
-import LikedSongsCard from './LikedSongsCard'
+import { GlobalContext } from '../../hooks/GlobalContext'
 
-const Albums = (props) => {
-  const { token } = props
+const Albums = () => {
+  const {context: {token}} = useContext(GlobalContext)
   const [albums, setAlbums] = useState([])
   const [nextAlbumUrl, setNextAlbumUrl] = useState('https://api.spotify.com/v1/me/albums?offset=0&limit=40')
 
@@ -47,7 +46,6 @@ const Albums = (props) => {
       hasMore={Boolean(nextAlbumUrl)}
       loader={<Loading key='239rehoufwds' />}>
 
-        <LikedSongsCard />
 
       {albums.map((album) => {
         let owner = [...album.artists.map((artist) => artist.name)].join(', ')
@@ -70,4 +68,4 @@ const Albums = (props) => {
   )
 }
 
-export default connect((store) => ({ token: store.token }), {})(Albums)
+export default Albums

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { connect } from 'react-redux'
 import NavButton from './NavButton'
 import Loading from '../Loading'
 import Card from '../Card'
@@ -9,6 +8,7 @@ import defaultImage from '../../icons/defaultIcon.svg'
 import styled from 'styled-components'
 import decodeHTML from '../../helpers/decodeHTML'
 import InfiniteScroll from 'react-infinite-scroller'
+import { GlobalContext } from '../../hooks/GlobalContext'
 
 const PlaylistTop = styled.div`
   /* props.backgroundColor allows for future background color responsiveness */
@@ -19,6 +19,7 @@ const PlaylistTop = styled.div`
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
+
 `
 const PlaylistBottom = styled.div`
   position: absolute;
@@ -31,8 +32,9 @@ const PlaylistBottom = styled.div`
   /* background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 78%, rgba(0,0,0,0) 100%); */
 `
 
-const PlaylistPage = ({ token }) => {
+const PlaylistPage = () => {
   // history.location.state when calling history.push(to: '', state: {}) fill the state param with the endpoint to hydrate the page properly
+  const {context: {token}} = useContext(GlobalContext)
   const history = useHistory()
   const { endpoint } = history.location.state
   const [data, setData] = useState(null)
@@ -100,4 +102,4 @@ const PlaylistPage = ({ token }) => {
   )
 }
 
-export default connect((store) => ({ token: store.token }), {})(PlaylistPage)
+export default PlaylistPage

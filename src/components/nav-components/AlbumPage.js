@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {useHistory} from 'react-router-dom'
-import {connect} from 'react-redux'
 import NavButton from './NavButton'
 import fetchGet from '../../helpers/fetchGet'
+import {GlobalContext} from "../../hooks/GlobalContext"
 
-const AlbumPage = ({token}) => {
+const AlbumPage = () => {
+const {context: {token}} = useContext(GlobalContext)
   // history.location.state when calling history.push(to: '', state: {}) fill the state param with the endpoint to hydrate the page properly
 const history = useHistory()
 const {endpoint} = history.location.state
@@ -34,4 +35,4 @@ useEffect(() => {
 }
 
 
-export default connect((store) => ({ token: store.token }), {})(AlbumPage)
+export default AlbumPage
