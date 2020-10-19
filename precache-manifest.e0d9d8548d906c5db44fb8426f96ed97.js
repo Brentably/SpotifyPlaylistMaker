@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "08236f127cc488decb14c185d25287ee",
+    "revision": "508cfd476ac4dd16dad7224ac0bd566d",
     "url": "/SpotifyPlaylistMaker/index.html"
   },
   {
-    "revision": "cd578eb0353a1fa22a45",
+    "revision": "e997067571ebadde4dda",
     "url": "/SpotifyPlaylistMaker/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "8f41da37d74c28187689",
-    "url": "/SpotifyPlaylistMaker/static/css/main.be4a9cfc.chunk.css"
+    "revision": "c0f47ac8a8bb73ebcdfa",
+    "url": "/SpotifyPlaylistMaker/static/css/main.c82e7ba7.chunk.css"
   },
   {
-    "revision": "cd578eb0353a1fa22a45",
-    "url": "/SpotifyPlaylistMaker/static/js/2.fb3bbad9.chunk.js"
+    "revision": "e997067571ebadde4dda",
+    "url": "/SpotifyPlaylistMaker/static/js/2.a118f183.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/SpotifyPlaylistMaker/static/js/2.fb3bbad9.chunk.js.LICENSE.txt"
+    "url": "/SpotifyPlaylistMaker/static/js/2.a118f183.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8f41da37d74c28187689",
-    "url": "/SpotifyPlaylistMaker/static/js/main.79980b46.chunk.js"
+    "revision": "c0f47ac8a8bb73ebcdfa",
+    "url": "/SpotifyPlaylistMaker/static/js/main.cd4ac15e.chunk.js"
   },
   {
     "revision": "2a2f728cdd39f1c14597",
