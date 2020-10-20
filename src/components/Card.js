@@ -8,7 +8,7 @@ import defaultIcon from '../icons/defaultIcon.svg'
 // endpoint is the endpoint that gets passed along is location.state to hydrate the page that card opens
 // imgClass is if you want to style your image, if you're using svg or something like that
 
-const Card = ({ item, type }) => {
+const Card = ({ item, type, hero }) => {
   // puts in track / playlist / artist / album and returns the proper data to put it into a card
   let img
   let header
@@ -20,7 +20,7 @@ const Card = ({ item, type }) => {
     case 'albums':
       img = item.images[0] ? item.images[0].url : defaultIcon
       header = item.name
-      subheader = [...item.artists.map((artist) => artist.name)].join(', ')
+      subheader = hero ? `Album • ${[...item.artists.map((artist) => artist.name)].join(', ')}` : [...item.artists.map((artist) => artist.name)].join(', ');
       endpoint = item.href
       path = '/album'
       break
@@ -28,6 +28,7 @@ const Card = ({ item, type }) => {
     case 'artists':
       img = item.images[0] ? item.images[0].url : defaultIcon
       header = item.name
+      subheader = hero ? "Artist" : null
       endpoint = item.href
       path = '/artist'
       break
@@ -35,15 +36,15 @@ const Card = ({ item, type }) => {
     case 'playlists':
       img = item.images[0] ? item.images[0].url : defaultIcon
       header = item.name
-      subheader = `by ${item.owner.display_name}`
+      subheader = hero ? "Playlist" : `by ${item.owner.display_name}`
       endpoint = item.href
       path = '/playlist'
       break
     case 'track':
     case 'tracks':
-      img = item.album.images[0] ? item.album.images[0].url : defaultIcon
+      img = item.album ? item.album.images[0] ? item.album.images[0].url : defaultIcon : defaultIcon
       header = item.name
-      subheader = item.artists.map((artist) => artist.name).join(',')
+      subheader = hero ? `Song • ${item.artists.map((artist) => artist.name).join(', ')}` : item.artists.map((artist) => artist.name).join(',')
       endpoint = null
       path = null
       break

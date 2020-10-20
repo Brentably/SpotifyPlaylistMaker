@@ -23,7 +23,7 @@ newType[0] = newType[0].toUpperCase()
     console.log(data)
     console.log(type)
     console.log(next)
-  }, [next, data])
+  }, [next, data, type])
 
   const handleLoadMore = async () => {
     //  returns if there are no more thingsto load

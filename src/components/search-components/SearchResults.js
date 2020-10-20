@@ -3,6 +3,7 @@ import fetchGet from '../../helpers/fetchGet'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import Loading from '../Loading'
 import BrowseBar from './BrowseBar'
+import Card from '../Card'
 
 
 const SearchResults = ({ query, data, setData }) => {
@@ -34,10 +35,18 @@ const SearchResults = ({ query, data, setData }) => {
     })()
   }, [token, setData, query])
 
-  // useEffect(() => console.log(data), [data])
+
+  useEffect(() => console.log(data), [data])
 
   return data ? (
     <>
+    <Card item={data.tracks[0]} type='track' hero/>
+    <Card item={data.tracks[1]} type='track' hero/>
+    <Card item={data.artists[0]} type='artists' hero/>
+    <Card item={data.artists[1]} type='artists' hero/>
+    <Card item={data.playlists[0]} type='playlists' hero/>
+    <Card item={data.playlists[1]} type='playlists' hero/>
+    <Card item={data.albums[0]} type='album' hero/>
       <BrowseBar forward data={{data: data.artists, next: data.artistsUrl, type: "artists"}}>
         See all artists
       </BrowseBar>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react'
 import Card from '../Card'
 import Loading from '../Loading'
-import defaultIcon from '../../icons/defaultIcon.svg'
 import LikedSongsCard from './LikedSongsCard'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'

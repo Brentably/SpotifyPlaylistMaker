@@ -3,7 +3,6 @@ import Card from '../Card'
 import Loading from '../Loading'
 import fetchGet from '../../helpers/fetchGet'
 import InfiniteScroll from 'react-infinite-scroller'
-import defaultIcon from "../../icons/defaultIcon.svg"
 import { GlobalContext } from '../../hooks/GlobalContext'
 
 const Albums = () => {
