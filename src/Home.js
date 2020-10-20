@@ -6,10 +6,11 @@ import Loading from './components/Loading'
 import MusicTypeSelector from './components/MusicTypeSelector'
 import Playlists from './components/user-library/Playlists'
 import Albums from './components/user-library/Albums'
-import Search from './components/Search'
+import Search from './components/search-components/Search'
 import PlaylistPage from './components/nav-components/PlaylistPage'
 import ArtistPage from './components/nav-components/ArtistPage'
 import AlbumPage from './components/nav-components/AlbumPage'
+import BrowsePage from './components/search-components/BrowsePage'
 import './App.css'
 import { MemoryRouter as Router, Switch, Route } from 'react-router-dom'
 import LikedSongsPage from './components/user-library/LikedSongsPage'
@@ -104,6 +105,9 @@ const Home = () => {
             </Route>
             <Route path='/album'>
               <AlbumPage />
+            </Route>
+            <Route path='/browsepage'>
+              <BrowsePage />
             </Route>
           </Switch>
         </Router>

@@ -23,8 +23,8 @@ const Search = () => {
     setQuery(event.target.value)
   }
 
-  
-  useEffect(() => {history.location.state = {query: query}}, [query])
+
+  useEffect(() => {history.location.state = {query: query}}, [query, history.location.state])
 
   return (
     <>

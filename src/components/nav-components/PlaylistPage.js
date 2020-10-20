@@ -12,7 +12,7 @@ import { GlobalContext } from '../../hooks/GlobalContext'
 
 const PlaylistTop = styled.div`
   /* props.backgroundColor allows for future background color responsiveness */
-  background: rgb(19, 19, 19);
+  background: var(--bg-color);
   background: linear-gradient(0deg, rgba(19, 19, 19, 1) 0%, rgba(48, 48, 48, 1) 35%, ${(props) => props.backgroundColor} 100%);
   display: flex;
   justify-content: space-between;
