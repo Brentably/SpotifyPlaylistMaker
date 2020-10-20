@@ -57,16 +57,11 @@ const Playlists = () => {
 
         {playlists.map((playlist) => {
           // console.log(playlist)
-          let source = playlist.images[0] ? playlist.images[0].url : defaultIcon
           return (
             <Card
-              endpoint={playlist.href}
               key={playlist.id}
-              // id={playlist.id}
-              path={playlist.type}
-              img={source}
-              header={playlist.name}
-              subheader={`by ${playlist.owner.display_name}`}
+              item={playlist}
+              type={playlist.type}
             />
           )
         })}

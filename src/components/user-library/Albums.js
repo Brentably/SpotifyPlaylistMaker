@@ -48,17 +48,11 @@ const Albums = () => {
 
 
       {albums.map((album) => {
-        let owner = [...album.artists.map((artist) => artist.name)].join(', ')
-        let source = album.images[0] ? album.images[0].url : defaultIcon
         return (
           <Card
             key={album.id}
-            //  id={album.id}
-            endpoint={album.href}
-            path={album.type}
-            header={album.name}
-            subheader={owner}
-            img={source}
+            item={album}
+            type="album"
           />
         )
       })}

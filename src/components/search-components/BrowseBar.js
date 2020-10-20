@@ -12,7 +12,7 @@ const BrowseBar = ({ forward, back, path = '/browsepage', className, children, d
     if (forward) history.push(`${path}`, data)
   }
   return (
-    <div className={`m-2 text-white ${className} ${forward ? 'text-left' : 'text-center'} relative`} onClick={handleClick}>
+    <div className={`m-2 text-white ${className} ${forward ? 'text-left' : 'text-center sticky'} `} onClick={handleClick}>
       <img
         src={backArrow}
         alt='back arrow'

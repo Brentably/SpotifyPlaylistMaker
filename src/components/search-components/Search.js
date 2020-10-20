@@ -15,8 +15,11 @@ const Search = () => {
   // react controlled forms
   let history = useHistory()
   // console.log(history.location.state)
-  const [query, setQuery] = useState(history.location.state ? history.location.state.query : "")
 
+  // the following funkiness holds the results for the search page in state, that way if someone is browsing and goes back to the search page, the results can rehydrate from state
+  const [query, setQuery] = useState(history.location.state ? history.location.state.query : "")
+  const [data, setData] = useState(history.location.state ? history.location.state.data : null)
+  useEffect(() => {history.location.state = {query: query, data: data}}, [query, history.location.state, data])
 
 
   function onChangeHandler(event) {
@@ -24,7 +27,6 @@ const Search = () => {
   }
 
 
-  useEffect(() => {history.location.state = {query: query}}, [query, history.location.state])
 
   return (
     <>
@@ -42,7 +44,7 @@ const Search = () => {
     </span></div>
     </div>
 
-    <SearchResults query={query} />
+    <SearchResults query={query} setData={setData} data={data}/>
     </>
   )
 }

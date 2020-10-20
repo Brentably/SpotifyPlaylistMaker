@@ -1,20 +1,20 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import fetchGet from '../../helpers/fetchGet'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import Loading from '../Loading'
 import BrowseBar from './BrowseBar'
 
 
-const SearchResults = ({ query }) => {
+const SearchResults = ({ query, data, setData }) => {
   const {
     context: { token },
   } = useContext(GlobalContext)
-  const [data, setData] = useState(null)
 
   useEffect(() => {
     if (query.length < 1) return
-    const formattedQuery = query.split(' ').join('%20')
-    // console.log(formattedQuery)
+    const formattedQuery = query.split(' ').join('%20').split('').filter(character => character !== "`").join('')
+
+    console.log(formattedQuery)
     const url = `https://api.spotify.com/v1/search?q=${formattedQuery}&type=album,artist,playlist,track&market=from_token`
     console.log(url)
     ;(async () => {
@@ -32,22 +32,22 @@ const SearchResults = ({ query }) => {
         tracksUrl: body.tracks.next,
       })
     })()
-  }, [query, token])
+  }, [token, setData, query])
 
   // useEffect(() => console.log(data), [data])
 
   return data ? (
     <>
-      <BrowseBar forward data={{artists: data.artists, artistsUrl: data.artistsUrl}}>
+      <BrowseBar forward data={{data: data.artists, next: data.artistsUrl, type: "artists"}}>
         See all artists
       </BrowseBar>
-      <BrowseBar forward data={{tracks: data.tracks, tracksUrl: data.tracksUrl}}>
+      <BrowseBar forward data={{data: data.tracks, next: data.tracksUrl, type: "tracks"}}>
         See all songs
       </BrowseBar>
-      <BrowseBar forward data={{playlists: data.playlists, playlistsUrl: data.playlistsUrl}}>
+      <BrowseBar forward data={{data: data.playlists, next: data.playlistsUrl, type: "playlists"}}>
         See all playlists
       </BrowseBar>
-      <BrowseBar forward data={{albums: data.albums, albumsUrl: data.albumsUrl}}>
+      <BrowseBar forward data={{data: data.albums, next: data.albumsUrl, type: "albums"}}>
         See all albums
       </BrowseBar>
     </>

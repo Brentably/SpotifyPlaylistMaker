@@ -13,7 +13,7 @@ import { GlobalContext } from '../../hooks/GlobalContext'
 const PlaylistTop = styled.div`
   /* props.backgroundColor allows for future background color responsiveness */
   background: var(--bg-color);
-  background: linear-gradient(0deg, rgba(19, 19, 19, 1) 0%, rgba(48, 48, 48, 1) 35%, ${(props) => props.backgroundColor} 100%);
+  background: linear-gradient(0deg, var(--bg-color) 0%, rgba(48, 48, 48, 1) 35%, ${(props) => props.backgroundColor} 100%);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -96,10 +96,7 @@ const PlaylistPage = () => {
           loader={<Loading key='Loading' />}>
           {tracks.map((index) => {
             const track = index.track
-            const owners = track.artists.map((artist) => artist.name).join(',')
-            const source = track.album.images[0] ? track.album.images[0].url : defaultImage
-            // console.log(track)
-            return <Card key={track.id} header={track.name} subheader={owners} img={source} />
+            return <Card key={track.id} item={track} type="track"/>
           })}
         </InfiniteScroll>
       </PlaylistBottom>
