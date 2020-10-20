@@ -11,7 +11,7 @@ const history = useHistory()
 const {endpoint} = history.location.state
 const [data, setData] = useState(null)
 
-
+console.log(data)
 useEffect(() => {
 (async () => {
   const response = await fetchGet(`${endpoint}`, token)

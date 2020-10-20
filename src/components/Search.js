@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import SearchResults from './SearchResults'
 import styled from 'styled-components'
+import {useHistory} from 'react-router-dom'
 
 const SearchInput = styled.input`
 padding: 0.25em 0.9em 0.25em 2.5em;
@@ -12,12 +13,18 @@ width: 100%;
 
 const Search = () => {
   // react controlled forms
-  const [value, setValue] = useState("")
+  let history = useHistory()
+  // console.log(history.location.state)
+  const [query, setQuery] = useState(history.location.state ? history.location.state.query : "")
+
+
 
   function onChangeHandler(event) {
-    setValue(event.target.value)
-
+    setQuery(event.target.value)
   }
+
+  
+  useEffect(() => {history.location.state = {query: query}}, [query])
 
   return (
     <>
@@ -26,7 +33,7 @@ const Search = () => {
       type="search"
       placeholder={"Search for Artists, Songs, etc."}
       autoFocus
-      value={value}
+      value={query}
       onChange={onChangeHandler}
     />
     {/* below is just some messy stuff I had to do to make sure the search icon was placed correctly. I couldn't figure out the background-image property so I just did what the spotify website did, BUT I know how to make this work without it being messy I'm just not going to right now because it works and I already spent a couple hours on this */}
@@ -35,7 +42,7 @@ const Search = () => {
     </span></div>
     </div>
 
-    <SearchResults query={value} />
+    <SearchResults query={query} />
     </>
   )
 }

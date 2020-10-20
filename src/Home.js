@@ -76,7 +76,7 @@ const Home = () => {
             '/search',
             { pathname: '/playlist', state: { endpoint: 'https://api.spotify.com/v1/playlists/37i9dQZF1DX4osfY3zybD2' } },
           ]}
-          initialIndex={3}>
+          initialIndex={2}>
           <Switch>
             <Route path='/playlists'>
               <Header userData={userData} />
