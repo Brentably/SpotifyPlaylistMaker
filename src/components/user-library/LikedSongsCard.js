@@ -19,11 +19,11 @@ const LikedSongsCard = () => {
       style={{ margin: '0.6rem' }}
       onClick={handleClick}>
       {/* allows whatever component that is rendering the card to just put default as a prop if there is no image there */}
-      <div className='likedSongsImage mr-2 flex justify-center items-center' style={{objectFit: "cover", height: "3.4em", width: "3.4em"}}>
-        <img src={likedSongsIcon} alt='liked songs heart' style={{width: "1.6em", height: "1.6em"}}/>
+      <div className='likedSongsImage mr-2 flex justify-center items-center' style={{objectFit: "cover", height: "3.5rem", width: "3.5rem"}}>
+        <img src={likedSongsIcon} alt='liked songs heart' style={{width: "1.4em", height: "1.4em"}}/>
       </div>
       <div className='ellipsis'>
-        <div className='text-md ellipsis'>Liked Songs</div>
+        <div className='text-base ellipsis'>Liked Songs</div>
         <div className='text-sm text-silver'></div>
       </div>
     </div>

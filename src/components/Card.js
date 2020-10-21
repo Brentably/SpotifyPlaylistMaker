@@ -72,11 +72,11 @@ const Card = ({ item, type, hero }) => {
         src={img}
         alt={type}
         className={`mr-2 ${type === "artist" ? "rounded-full" : undefined}`}
-        style={{ objectFit: 'cover', height: '3.4em', width: '3.4em' }}
+        style={{ objectFit: 'cover', height: '3.5rem', width: '3.5rem' }}
         loading='lazy'
       />
       <div className='ellipsis'>
-        <div className='text-md ellipsis'>{header}</div>
+        <div className='text-base ellipsis'>{header}</div>
         <div className='text-sm text-silver'>{subheader}</div>
       </div>
       {/* <img
