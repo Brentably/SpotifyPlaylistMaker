@@ -18,6 +18,7 @@ newType[0] = newType[0].toUpperCase()
   const capsType = newType.join("")
   const [data, setData] = useState([...history.location.state.data])
   const [next, setNext] = useState(history.location.state.next)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     console.log(data)
@@ -26,21 +27,24 @@ newType[0] = newType[0].toUpperCase()
   }, [next, data, type])
 
   const handleLoadMore = async () => {
+    if(loading) return;
+    setLoading(true)
     //  returns if there are no more thingsto load
     if (!next) return
     const response = await fetchGet(next, token)
     if (response.ok) {
       const body = await response.json()
       // items must change depending on the type
-      let items = body[`${type}`].items
+      const newType = [...type.split(""), "s"].join('')
+      let items = body[`${newType}`].items
       console.log(items)
-      setNext(body[`${type}`].next)
+      setNext(body[`${newType}`].next)
+      // sets the next url for the next time the load more function is called
       setData((prevData) => {
         return [...prevData, ...items]
       })
-
-      // and sets the next url for the next time the load more function is called
-    }
+      setLoading(false)
+    } else console.log("there was an error with the handleLoadMore function call on BrowsePage.js. Response.ok === false")
   }
 
   
