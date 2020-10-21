@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import defaultIcon from '../icons/defaultIcon.svg'
+import forwardArrow from '../icons/forwardArrow.svg'
 
 // COMPONENT INFO:
 // When using Card
@@ -17,7 +18,7 @@ const Card = ({ item, type, hero }) => {
   let path
   switch (type) {
     case 'album':
-    case 'albums':
+    // case 'albums':
       img = item.images[0] ? item.images[0].url : defaultIcon
       header = item.name
       subheader = hero ? `Album • ${[...item.artists.map((artist) => artist.name)].join(', ')}` : [...item.artists.map((artist) => artist.name)].join(', ');
@@ -25,7 +26,7 @@ const Card = ({ item, type, hero }) => {
       path = '/album'
       break
     case 'artist':
-    case 'artists':
+    // case 'artists':
       img = item.images[0] ? item.images[0].url : defaultIcon
       header = item.name
       subheader = hero ? "Artist" : null
@@ -33,7 +34,7 @@ const Card = ({ item, type, hero }) => {
       path = '/artist'
       break
     case 'playlist':
-    case 'playlists':
+    // case 'playlists':
       img = item.images[0] ? item.images[0].url : defaultIcon
       header = item.name
       subheader = hero ? "Playlist" : `by ${item.owner.display_name}`
@@ -41,7 +42,7 @@ const Card = ({ item, type, hero }) => {
       path = '/playlist'
       break
     case 'track':
-    case 'tracks':
+    // case 'tracks':
       img = item.album ? item.album.images[0] ? item.album.images[0].url : defaultIcon : defaultIcon
       header = item.name
       subheader = hero ? `Song • ${item.artists.map((artist) => artist.name).join(', ')}` : item.artists.map((artist) => artist.name).join(',')
@@ -70,7 +71,7 @@ const Card = ({ item, type, hero }) => {
       <img
         src={img}
         alt={type}
-        className={'mr-2'}
+        className={`mr-2 ${type === "artist" ? "rounded-full" : undefined}`}
         style={{ objectFit: 'cover', height: '3.4em', width: '3.4em' }}
         loading='lazy'
       />
@@ -78,6 +79,12 @@ const Card = ({ item, type, hero }) => {
         <div className='text-md ellipsis'>{header}</div>
         <div className='text-sm text-silver'>{subheader}</div>
       </div>
+      {/* <img
+        src={forwardArrow}
+        alt='forward arrow'
+        className={`${hero ? undefined : 'hidden'} inline fixed right-0`}
+        style={{ maxHeight: '1.5rem', maxWidth: '1.5rem' }}
+      /> */}
     </div>
   )
 }

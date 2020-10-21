@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import fetchGet from '../../helpers/fetchGet'
 import { GlobalContext } from '../../hooks/GlobalContext'
 import Loading from '../Loading'
-import BrowseBar from './BrowseBar'
+import {ForwardBrowseBar} from './BrowseBar'
 import Card from '../Card'
 
 
@@ -42,23 +42,23 @@ const SearchResults = ({ query, data, setData }) => {
     <>
     <Card item={data.tracks[0]} type='track' hero/>
     <Card item={data.tracks[1]} type='track' hero/>
-    <Card item={data.artists[0]} type='artists' hero/>
-    <Card item={data.artists[1]} type='artists' hero/>
-    <Card item={data.playlists[0]} type='playlists' hero/>
-    <Card item={data.playlists[1]} type='playlists' hero/>
+    <Card item={data.artists[0]} type='artist' hero/>
+    <Card item={data.artists[1]} type='artist' hero/>
+    <Card item={data.playlists[0]} type='playlist' hero/>
+    <Card item={data.playlists[1]} type='playlist' hero/>
     <Card item={data.albums[0]} type='album' hero/>
-      <BrowseBar forward data={{data: data.artists, next: data.artistsUrl, type: "artists"}}>
+      <ForwardBrowseBar data={{data: data.artists, next: data.artistsUrl, type: "artist"}}>
         See all artists
-      </BrowseBar>
-      <BrowseBar forward data={{data: data.tracks, next: data.tracksUrl, type: "tracks"}}>
+      </ForwardBrowseBar>
+      <ForwardBrowseBar data={{data: data.tracks, next: data.tracksUrl, type: "track"}}>
         See all songs
-      </BrowseBar>
-      <BrowseBar forward data={{data: data.playlists, next: data.playlistsUrl, type: "playlists"}}>
+      </ForwardBrowseBar>
+      <ForwardBrowseBar data={{data: data.playlists, next: data.playlistsUrl, type: "playlist"}}>
         See all playlists
-      </BrowseBar>
-      <BrowseBar forward data={{data: data.albums, next: data.albumsUrl, type: "albums"}}>
+      </ForwardBrowseBar>
+      <ForwardBrowseBar data={{data: data.albums, next: data.albumsUrl, type: "album"}}>
         See all albums
-      </BrowseBar>
+      </ForwardBrowseBar>
     </>
   ) : (
     <Loading />

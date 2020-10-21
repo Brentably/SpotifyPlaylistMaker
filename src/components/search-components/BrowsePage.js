@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroller'
-import BrowseBar from './BrowseBar'
+import {BackBrowseBar} from './BrowseBar'
 import Loading from '../Loading'
 import fetchGet from '../../helpers/fetchGet'
 import { GlobalContext } from '../../hooks/GlobalContext'
@@ -47,7 +47,7 @@ newType[0] = newType[0].toUpperCase()
 
   return (
     <>
-      <BrowseBar back>{`${capsType}`}</BrowseBar>
+      <BackBrowseBar>{`${capsType}`}</BackBrowseBar>
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
