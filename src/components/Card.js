@@ -66,7 +66,7 @@ const Card = ({ item, type, hero }) => {
   }
 
   return (
-    <div id='card' className='text-white flex font-nunito-semibold ellipsis items-center m-2' onClick={handleClick}>
+    <div id='card' className='text-white flex font-nunito-semibold ellipsis items-center m-3' onClick={handleClick}>
       {/* allows whatever component that is rendering the card to just put default as a prop if there is no image there */}
       <img
         src={img}
